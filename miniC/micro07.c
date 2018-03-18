@@ -6,12 +6,12 @@ int main(){
 		printf("Digite um número: ");
 		scanf("%d", &numero);
 		if(numero > 0){
-			printf("Positivo");
+			printf("Positivo\n");
 		} else {
 			if(numero == 0){
-				printf("O número é igual a 0");
+				printf("O número é igual a 0\n");
 			} else {
-				printf("Negativo");
+				printf("Negativo\n");
 			}
 		}
 		printf("Deseja finalizar? (S/N) ");
