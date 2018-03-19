@@ -4,7 +4,7 @@ int main(){
 	int programa, numero;
 	char opc;
 	programa = 1;
-	while(programa = 1){
+	while(programa == 1){
 		printf("Digite um número: ");
 		scanf("%d", &numero);
 		if(numero > 0){
@@ -16,6 +16,7 @@ int main(){
 				printf("Negativo\n");
 			}
 		}
+		scanf("%c", &opc);
 		printf("Deseja finalizar? (S/N) ");
 		scanf("%c", &opc);
 		if(opc == 'S'){

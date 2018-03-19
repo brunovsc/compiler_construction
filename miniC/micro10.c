@@ -10,7 +10,7 @@ int main(){
 	printf("O fatorial de ");
 	printf("%d", numero);
 	printf(" é ");
-	printf("%d", fat);
+	printf("%d\n", fat);
 }
 
 int fatorial(int n){
