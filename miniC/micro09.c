@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int main(){
 	float preco, venda, novo_preco;
 	printf("Digite o preço: ");

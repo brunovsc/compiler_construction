@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int verifica(int n);
 
 int main(){

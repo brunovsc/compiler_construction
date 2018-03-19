@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int main(){
 	char nome[15];
 	char sexo;

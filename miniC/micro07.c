@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int main(){
 	int programa, numero;
 	char opc;

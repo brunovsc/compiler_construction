@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int main(){
 	int x, num, intervalo;
 	intervalo = 0; // a inicialização da variável intervalo não estava presente no algoritmo em Portugol

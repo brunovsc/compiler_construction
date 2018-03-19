@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int fatorial(int n);
 
 int main(){

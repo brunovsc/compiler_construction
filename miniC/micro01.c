@@ -1,3 +1,5 @@
+#import <stdio.h>
+
 int main(){
 	float cel, far;
 	printf(" Tabela de conversão: Celsius -> Fahrenheit\n");
