@@ -168,7 +168,7 @@ rule token = parse
 | "false"	   { FALSE }
 | "void"	   { VOID }
 | "return"   { RETURN }
-| "#include" { INCLUDE }
+| "#include" { token lexbuf }
 
 | '"'        { let pos = lexbuf.lex_curr_p in
                let lin = pos.pos_lnum
@@ -177,7 +177,7 @@ rule token = parse
                let str = leia_string lin col buffer lexbuf in
                  LITERAL_STRING str }
 
-| header_file as hf { HEADER_FILE hf }
+| header_file as hf { token lexbuf }
 
 | inteiro as num { let numero = int_of_string num in 
                     LITERAL_INTEGER numero }
@@ -185,8 +185,11 @@ rule token = parse
 | numero as num { let n = float_of_string num in 
                     LITERAL_FLOAT n }
 
-| caracter as char_string { if ((String.length char_string) != 3) then failwith "Caracter invalido"
-                            else LITERAL_CHAR (char_string.[1]) }
+| caracter as char_string { if ((String.length char_string) == 3) then LITERAL_CHAR (char_string.[1])
+                            else let pos = lexbuf.lex_curr_p in
+               										let lin = pos.pos_lnum
+               										and col = pos.pos_cnum - pos.pos_bol - 1 in 
+																	erro lin col "Caracter não fechado"}
 
 | identificador as id { ID id }
 
@@ -210,6 +213,7 @@ and leia_string lin col buffer = parse
 | "\\n"    	{ Buffer.add_char buffer '\n'; leia_string lin col buffer lexbuf }
 | '\\' '"'  { Buffer.add_char buffer '"'; leia_string lin col buffer lexbuf }
 | '\\' '\\' { Buffer.add_char buffer '\\'; leia_string lin col buffer lexbuf }
+| novalinha      	{ erro lin col "A string não foi fechada"}
 | _ as c    { Buffer.add_char buffer c; leia_string lin col buffer lexbuf }
 | eof      	{ erro lin col "A string não foi fechada"}
 
