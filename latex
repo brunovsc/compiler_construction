@@ -1,0 +1,772 @@
+\documentclass[12pt,a4paper,twoside]{report}
+% -------------------------------------------------------------------- %
+% Pacotes
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[fixlanguage]{babelbib}
+\usepackage[pdftex]{graphicx}      % usamos arquivos pdf/png como figuras
+\usepackage{setspace}              % espaçamento flexvel
+\usepackage{indentfirst}           % indentação do primeiro parágrafo
+\usepackage{makeidx}               % índice remissivo
+\usepackage[nottoc]{tocbibind}     % acrescentamos a bibliografia/indice/conteudo no Table of Contents
+\usepackage{courier}               % usa o Adobe Courier no lugar de Computer Modern Typewriter
+\usepackage{type1cm}               % fontes realmente escaláveis
+\usepackage{titletoc}
+\usepackage{ucs}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry} % margens
+\usepackage{amsmath} 
+
+\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=DarkGreen,
+linkcolor=NavyBlue,urlcolor=DarkRed,filecolor=green,bookmarksopen=true]{hyperref} % links coloridos
+\usepackage[all]{hypcap}                % soluciona o problema com o hyperref e capítulos
+\usepackage[square,sort,nonamebreak,comma]{natbib}  % citação bibliográfica alpha
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\usepackage{upquote}                    % formata apóstrofes '
+\usepackage{textcomp}
+
+% Para formatar corretamente as URLs
+\usepackage{url}
+% -------------------------------------------------------------------- %
+% Cabeçalhos similares ao TAOCP de Donald E. Knuth
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\MakeUppercase{#1}}{}}
+\renewcommand{\headrulewidth}{0pt}
+
+% -------------------------------------------------------------------- %
+\graphicspath{{./imagens/}}        % caminho das figuras
+\frenchspacing                     % arruma o espaço: id est (i.e.) e exempli gratia (e.g.)
+\urlstyle{same}                    % URL com o mesmo estilo do texto e no mono-spaced
+\makeindex                         % para o índice remissivo
+\raggedbottom                      % para no permitir espaços extras no texto
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\cleardoublepage
+\normalsize
+
+% -------------------------------------------------------------------- %
+% Cores para formatação de código
+\usepackage{color}
+\definecolor{vermelho}{rgb}{0.6,0,0} % para strings
+\definecolor{verde}{rgb}{0.25,0.5,0.35} % para comentários
+\definecolor{roxo}{rgb}{0.5,0,0.35} % para palavras-chaves
+\definecolor{azul}{rgb}{0.25,0.35,0.75} % para strings
+\definecolor{cinza-claro}{gray}{0.95}
+% -------------------------------------------------------------------- %
+% Opções de listagem usados para o código fonte
+% Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+
+
+
+\usepackage{listings}           % para formatar código-fonte (ex. em Java)
+
+
+\lstset{ %
+language=[Objective]Caml,  % seleciona a linguagem do código (aqui em lstlang0.sty
+basicstyle=\footnotesize\ttfamily, % o tamanho da fonte usado no código
+commentstyle=\color{verde}\bfseries,  % formatação de comentários
+stringstyle=\color{azul},    % formatação de strings
+upquote=true,
+numbers=left,                   % onde colocar os números de linha
+numberstyle=\tiny,  % o tamanho da fonte usada para a numeração das linhas
+stepnumber=1,                   % o intervalo entre dois números de linhas. Se for 1, numera cada uma.
+numbersep=5pt,                  % how far the line-numbers are from the code
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+keywordstyle=\color{roxo}\bfseries,
+keywordstyle=[1]\color{roxo}\bfseries,
+keywordstyle=[2]\color{verde}\bfseries,
+%        keywordstyle=[3]\textbf,    %
+%        keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
+frame=b,                   % adds a frame around the code
+framerule=0.6pt,
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=t,                   % sets the caption-position to top
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+backgroundcolor=\color[rgb]{1.0,1.0,1.0}, % choose the background color.
+rulecolor=\color[rgb]{0.8,0.8,0.8},
+extendedchars=true,
+xleftmargin=10pt,
+xrightmargin=10pt,
+framexleftmargin=10pt,
+framexrightmargin=10pt,
+literate={â}{{\^{a}}}1  % para formatar corretamente os acentos do Português ao usar utf8
+    {ê}{{\^{e}}}1
+    {ô}{{\^{o}}}1  
+    {Â}{{\^{A}}}1
+    {Ê}{{\^{E}}}1
+    {Ô}{{\^{O}}}1
+    {á}{{\'{a}}}1
+    {é}{{\'{e}}}1
+    {í}{{\'{i}}}1
+    {ó}{{\'{o}}}1
+    {ú}{{\'{u}}}1
+    {Á}{{\'{A}}}1
+    {É}{{\'{E}}}1
+    {Í}{{\'{I}}}1
+    {Ó}{{\'{O}}}1
+    {Ú}{{\'{U}}}1
+    {à}{{\`{a}}}1
+    {À}{{\`{A}}}1
+    {ã}{{\~{a}}}1
+    {õ}{{\~{o}}}1
+    {Ã}{{\~{A}}}1
+    {Õ}{{\~{O}}}1
+    {ç}{{\c{c}}}1
+    {Ç}{{\c{C}}}1
+    {ü}{{\"u}}1
+    {Ü}{{\"U}}1
+}
+
+\renewcommand{\lstlistingname}{Listagem}
+\renewcommand{\lstlistlistingname}{Lista de Listagens}
+
+% Definição de novos estilos
+\lstdefinestyle{Bash}
+    {language=bash,frame=single,numbers=none,basicstyle=\footnotesize\ttfamily,
+     morekeywords={cp,mkdir,sudo,tar}}
+
+% Definição de novos ambientes
+\lstnewenvironment{terminal}
+  {\lstset{style=Bash}}
+  {}
+
+\lstnewenvironment{ocaml}
+  {\lstset{basicstyle=\scriptsize\ttfamily,
+           frame=single,
+           frameround=tttt,
+           framerule=2pt,
+           numbers=none,
+           rulecolor=\color{Salmon}}}
+  {}
+
+\lstnewenvironment{xml}
+   {\lstset{language=XML,frame=single,numbers=none}}
+   {}
+
+\lstnewenvironment{interprete}
+  {\lstset{frame=single,
+            frameround=tttt,
+            numbers=none,
+            basicstyle=\ttfamily,
+            framerule=2pt,
+            rulecolor=\color{CadetBlue}}}
+  {}
+% Formata o caption da listagem
+% \DeclareCaptionFont{blue}{\color{blue}} 
+
+% \captionsetup[lstlisting]{singlelinecheck=false, labelfont={blue}, textfont={blue}}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\newcommand{\ListingsPath}{./codigos}
+% Inclui o nome do arquivo como Caption 
+\newcommand{\filelisting}[2][]{%
+    \lstinputlisting[caption={\texttt{\detokenize{#2}}},#1]{\ListingsPath/#2}%
+}
+
+% ---------------------------------------------------------------------------- %
+
+% ---------------------------------------------------------------------------- %
+
+\title{Construção de um compilador de MiniC para Common Language Runtime (CLR) usando Objective Caml}
+\date{}
+\author{Bruno Sérgio Cardoso Vieira\\
+\texttt{\small \url{brunoscvieira@gmail.com}}\\
+\vspace{1cm} \\
+Faculdade de Computação \\
+Universidade Federal de Uberlândia
+}
+\date{\today}
+
+%\includeonly{cap-clojure,magical,short}
+\begin{document}
+  \maketitle
+% -------------------------------------------------------------------- %
+% Listas de figuras, tabelas e códigos criadas automaticamente
+\listoffigures            
+\listoftables            
+\lstlistoflistings
+% -------------------------------------------------------------------- %
+
+% -------------------------------------------------------------------- %
+% Sumário
+\tableofcontents    
+
+% Capítulos do trabalho
+
+% cabeçalho para as páginas de todos os capítulos
+\fancyhead[RE,LO]{\thesection}
+
+%\singlespacing              % espaçamento simples
+\setlength{\parskip}{0.15in} % espaçamento entre paragráfos
+
+\chapter{Introdução}
+
+\section{Compilador}
+Um compilador é um programa de computador que transforma código escrito em uma linguagem de programação (linguagem fonte, normalmente uma linguagem de alto nível - Java, C, Python) em outra linguagem de programação (linguagem objetivo, normalmente uma linguagem de baixo nível, como Assembly e código de máquina).
+
+\section{Visão geral}
+Este documento apresenta informações iniciais sobre a construção de um compilador cuja linguagem fonte é MiniC (versão com instruções reduzidas da linguagem C) e linguagem objetivo a CIL, que é a linguagem utilizada pela Common Language Runtime para execução.
+
+\section{Cenário}
+A seguir, serão expostos algumas informações sobre o cenário em que este trabalho foi desenvolvido.
+
+\subsection{MiniC}
+A linguagem MiniC é constituída a partir de uma seção de instruções mais simples que compõem a linguagem C original, ou seja, o conjunto de instruções foi limitado às instruções necessárias para a elaboração de programas simples e de forma suficiente para entender o processo de construção de um compilador.\\
+\\
+
+\subsection{Common Intermediate Language - CIL}
+A Common Intermediate Language, inicialmente chamada de Microsoft Intermediate Language (MSIL), é a linguagem de baixo nível utilizada pelo framework .NET, da Microsoft, e pela Mono runtime. Durante a compilação, a linguagem de origem é traduzida para CIL ao invés de código-objeto específico de uma plataforma ou processador. O código CIL é, então, assemblado em bytecode, que é posteriormente executado pela máquina virtual (CLR).
+
+\subsubsection{Pilha}
+A CIL é uma linguagem orientada a objetos e é executada utilizando pilha, ou seja, as instruções utilizam os valores armazenados na pilha (removendo-os na execução do comando) e armazenam o valor de retorno novamente na pilha. Exemplo:\\
+\textbf{...}\\
+\textbf{.maxstack 2} // define o numero máximo de valores na pilha\\
+\textbf{...}\\
+\\
+\textbf{ldc.i4 5} // carrega o valor 5 na pilha\\
+\textbf{ldc.i4 20} // carrega o valor 20 na pilha\\
+\textbf{sub} // remove os valores 5 e 20 da pilha, calcula (5 - 20) e adiciona o resultado -15 na pilha\\
+\textbf{call void [mscorlib]System.Console::WriteLine (int32)} // printa o resultado presente na pilha\\
+\textbf{...}
+
+\subsubsection{Lista de instruções CIL}
+
+Lista com algumas instruções mais simples e comuns em programas na linguagem CIL.
+
+\begin{enumerate}
+\item \textbf{add} - adiciona dois valores, retornando o resultado da soma na pilha
+\item \textbf{and} - operação AND bit a bit
+\item \textbf{beq LABEL} - direciona o fluxo de execução para LABEL se valores são iguais
+\item \textbf{bge LABEL} - direciona o fluxo de execução para LABEL se valor1 >= valor2
+\item \textbf{bgt LABEL} - direciona o fluxo de execução para LABEL se valor1 > valor2
+\item \textbf{ble LABEL} - direciona o fluxo de execução para LABEL se valor1 <= valor2
+\item \textbf{blt LABEL} - direciona o fluxo de execução para LABEL se valor1 < valor2
+\item \textbf{bne.un LABEL} - direciona o fluxo de execução para LABEL se valor1 != valor2
+\item \textbf{br LABEL} - direciona, incondicionalmente, o fluxo de execução para LABEL
+\item \textbf{call METHOD} - chamada de função descrita por METHOD
+\item \textbf{div} - divide dois valores e retorna o quociente na pilha
+\item \textbf{ldarg.0} - carrega na pilha o primeiro argumento da função
+\item \textbf{ldc.i4 VALUE} - carrega na pilha o inteiro de 4 bytes (int32) de valor VALUE
+\item \textbf{ldc.r4 VALUE} - carrega na pilha o real de 4 bytes -float- (float32) de valor VALUE
+\item \textbf{ldc.r8 VALUE} - carrega na pilha o real de 8 bytes -double- (float64) de valor VALUE
+\item \textbf{ldloc.0} - carrega na pilha o valor da variavel local 0
+\item \textbf{ldloc VARIABLE} - carrega na pilha o valor da variavel local VARIABLE
+\item \textbf{ldstr "text"} - carrega na pilha a string text
+\item \textbf{mul} - multiplica dois valores e retorna o resultado na pilha
+\item \textbf{not} - operador não lógico
+\item \textbf{or} - operação OR bit a bit
+\item \textbf{pop} - remover valor da pilha
+\item \textbf{rem} - divide dois valores e retorna o resto na pilha
+\item \textbf{stloc.0} - salva o valor da pilha na variável 0
+\item \textbf{stloc} VARIABLE - salva o valor da pilha na variável VARIABLE
+\item \textbf{sub} - subtrai o valor2 do valor1, retornando o resultado da subtração na pilha
+\end{enumerate}
+
+\subsubsection{Exemplo de programa em linguagem CIL}
+A seguir, segue um exemplo de um programa em linguagem CIL com comentários que descrevem a função dos comandos utilizados.
+\lstinputlisting[language=CIL, caption={Nano 6 - CIL}]{ilasm/nano11_commented.txt}
+
+
+
+\chapter{Configuração}
+\section{Introdução}
+Neste capítulo, serão apresentadas as formas de instalação e configuração necessários para execução do projeto.
+
+\section{Instalação}
+Foi utilizado o Sistema Operacional Ubuntu 16.04 para a realização deste trabalho.
+
+\subsection{Ocaml}
+Embora ainda não tenha sido utilizado nesta seção do projeto, o Ocaml será utilizado futuramente como linguagem para o desenvolvimento do compilador. No terminal, digite:\\
+
+\textbf{sudo apt-get install ocaml ocaml-native-compilers ocaml-doc tuareg-mode ocaml-findlib oasis libpcre-ocaml-dev}\\
+
+\subsection{Mono}
+
+No terminal, digite:\\\newline
+\textbf{sudo apt-get install mono-runtime monodevelop}\\
+
+\section{Execução}
+
+\subsection{Compilar arquivo .il}
+
+Para compilar um arquivo com extensão .il, siga os seguintes passos: 
+
+\begin{enumerate}
+\item Abra o Terminal
+\item Navegue até a pasta na qual está localizado o arquivo .il
+\item Digite: ilasm nome-do-arquivo.il
+\end{enumerate}
+
+\subsection{Executar arquivo .exe}
+
+Para executar o arquivo com extensão .exe gerado pela compilação, siga os seguintes passos:
+
+\begin{enumerate}
+\item Abra o Terminal
+\item Navegue até a pasta na qual está localizado o arquivo .exe
+\item Digite: mono nome-do-arquivo.exe
+\end{enumerate}
+
+\chapter{Programas de teste}
+Neste capítulo, serão apresentados os algoritmos propostos em linguagem C e suas respectivas traduções para a linguagem CIL.\\
+
+\section{Nano Programas}
+São programas simples, de caráter exploratório, para verificar as estruturas básicas e a combinação destas estruturas em programas de baixa complexidade.
+
+\subsection{Nano 1}
+Módulo mínimo que caracteriza um programa.\\
+\lstinputlisting[language=C, caption={Nano 1 - Linguagem C}]{miniC/nano01.c}
+\lstinputlisting[language=CIL, caption={Nano 1 - CIL}]{ilasm/nano01.txt}
+Saída:\newline
+Em branco
+
+\subsection{Nano 2}
+Declaração de uma variável.\\
+\lstinputlisting[language=C, caption={Nano 2 - Linguagem C}]{miniC/nano02.c}
+\lstinputlisting[language=CIL, caption={Nano 2 - CIL}]{ilasm/nano02.txt}
+Saída:\newline
+Em branco
+
+\subsection{Nano 3}
+Atribuição de um inteiro a uma variável.\\
+\lstinputlisting[language=C, caption={Nano 3 - Linguagem C}]{miniC/nano03.c}
+\lstinputlisting[language=CIL, caption={Nano 3 - CIL}]{ilasm/nano03.txt}
+Saída:\newline
+1
+
+\subsection{Nano 4}
+Atribuição de uma soma de inteiro a uma variável.\\
+\lstinputlisting[language=C, caption={Nano 4 - Linguagem C}]{miniC/nano04.c}
+\lstinputlisting[language=CIL, caption={Nano 4 - CIL}]{ilasm/nano04.txt}
+Saída:\newline
+3
+
+\subsection{Nano 5}
+Inclusão do comando de impressão.\\
+\lstinputlisting[language=C, caption={Nano 5 - Linguagem C}]{miniC/nano05.c}
+\lstinputlisting[language=CIL, caption={Nano 5 - CIL}]{ilasm/nano05.txt}
+Saída:\newline
+2
+
+\subsection{Nano 6}
+Atribuição de uma subtração de inteiro a uma variável.\\
+\lstinputlisting[language=C, caption={Nano 6 - Linguagem C}]{miniC/nano06.c}
+\lstinputlisting[language=CIL, caption={Nano 6 - CIL}]{ilasm/nano06.txt}
+Saída:\newline
+-1
+
+\subsection{Nano 7}
+Inclusão do comando condicional.\\
+\lstinputlisting[language=C, caption={Nano 7 - Linguagem C}]{miniC/nano07.c}
+\lstinputlisting[language=CIL, caption={Nano 7 - CIL}]{ilasm/nano07.txt}
+Saída:\newline
+1
+
+\subsection{Nano 8}
+Inclusão do comando condicional com parte senão.\\
+\lstinputlisting[language=C, caption={Nano 8 - Linguagem C}]{miniC/nano08.c}
+\lstinputlisting[language=CIL, caption={Nano 8 - CIL}]{ilasm/nano08.txt}
+Saída:\newline
+0
+
+\subsection{Nano 9}
+Atribuição de duas operações aritméticas sobre inteiros a uma variável.\\
+\lstinputlisting[language=C, caption={Nano 9 - Linguagem C}]{miniC/nano09.c}
+\lstinputlisting[language=CIL, caption={Nano 9 - CIL}]{ilasm/nano09.txt}
+Saída:\newline
+0
+
+\subsection{Nano 10}
+Atribuição de duas variáveis inteiras.\\
+\lstinputlisting[language=C, caption={Nano 10 - Linguagem C}]{miniC/nano10.c}
+\lstinputlisting[language=CIL, caption={Nano 10 - CIL}]{ilasm/nano10.txt}
+Saída:\newline
+0
+
+\subsection{Nano 11}
+Introdução do comando de repetição enquanto.\\
+\lstinputlisting[language=C, caption={Nano 11 - Linguagem C}]{miniC/nano11.c}
+\lstinputlisting[language=CIL, caption={Nano 11 - CIL}]{ilasm/nano11.txt}
+Saída:\newline
+35
+
+\subsection{Nano 12}
+Comando condicional aninhado em um comando de repetição.\\
+\lstinputlisting[language=C, caption={Nano 12 - Linguagem C}]{miniC/nano12.c}
+\lstinputlisting[language=CIL, caption={Nano 12 - CIL}]{ilasm/nano12.txt}
+Saída:\newline
+0000
+
+\section{Micro Programas}
+São programas de maior complexidade, envolvendo cálculos e operações de entrada e saída mais elaboradas.
+
+\subsection{Micro 1}
+Converte graus Celcius para Fahreinheit.\\
+\lstinputlisting[language=C, caption={Micro 1 - Linguagem C}]{miniC/micro01.c}
+\lstinputlisting[language=CIL, caption={Micro 1 - CIL}]{ilasm/micro01.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 1}
+\includegraphics[scale=0.43]{programs_output/micro01.png}
+\end{figure}
+
+\subsection{Micro 2}
+Ler dois inteiros e decide qual é maior.\\
+\lstinputlisting[language=C, caption={Micro 2 - Linguagem C}]{miniC/micro02.c}
+\lstinputlisting[language=CIL, caption={Micro 2 - CIL}]{ilasm/micro02.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 2}
+\includegraphics[scale=0.43]{programs_output/micro02.png}
+\end{figure}
+
+\subsection{Micro 3}
+Lê um número e verifica se ele está entre 100 e 200.\\
+\lstinputlisting[language=C, caption={Micro 3 - Linguagem C}]{miniC/micro03.c}
+\lstinputlisting[language=CIL, caption={Micro 3 - CIL}]{ilasm/micro03.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 3}
+\includegraphics[scale=0.43]{programs_output/micro03.png}
+\end{figure}
+
+\subsection{Micro 4}
+Lê números inteiros e informa quantos estão entre 10 e 150.\\
+\lstinputlisting[language=C, caption={Micro 4 - Linguagem C}]{miniC/micro04.c}
+\lstinputlisting[language=CIL, caption={Micro 4 - CIL}]{ilasm/micro04.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 4}
+\includegraphics[scale=0.43]{programs_output/micro04.png}
+\end{figure}
+
+\subsection{Micro 5}
+Lê strings e caracteres (nome e gênero) e conta a quantidade de inserções de cada gênero.\\
+\lstinputlisting[language=C, caption={Micro 5 - Linguagem C}]{miniC/micro05.c}
+\lstinputlisting[language=CIL, caption={Micro 5 - CIL}]{ilasm/micro05.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 5}
+\includegraphics[scale=0.43]{programs_output/micro05.png}
+\end{figure}
+
+\subsection{Micro 6}
+Escreve um número lido por extenso.\\
+\lstinputlisting[language=C, caption={Micro 6 - Linguagem C}]{miniC/micro06.c}
+\lstinputlisting[language=CIL, caption={Micro 6 - CIL}]{ilasm/micro06.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 6}
+\includegraphics[scale=0.43]{programs_output/micro06.png}
+\end{figure}
+
+\subsection{Micro 7}
+Decide se um número lido é positivo, zero ou negativo.\\
+\lstinputlisting[language=C, caption={Micro 7 - Linguagem C}]{miniC/micro07.c}
+\lstinputlisting[language=CIL, caption={Micro 7 - CIL}]{ilasm/micro07.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 7}
+\includegraphics[scale=0.43]{programs_output/micro07.png}
+\end{figure}
+
+\subsection{Micro 8}
+Decide se um número é maior ou menor que 10.\\
+\lstinputlisting[language=C, caption={Micro 8 - Linguagem C}]{miniC/micro08.c}
+\lstinputlisting[language=CIL, caption={Micro 8 - CIL}]{ilasm/micro08.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 8}
+\includegraphics[scale=0.43]{programs_output/micro08.png}
+\end{figure}
+
+\subsection{Micro 9}
+Cálculo de alteração de preço baseado em preço e número de vendas.\\
+\lstinputlisting[language=C, caption={Micro 9 - Linguagem C}]{miniC/micro09.c}
+\lstinputlisting[language=CIL, caption={Micro 9 - CIL}]{ilasm/micro09.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 9}
+\includegraphics[scale=0.43]{programs_output/micro09.png}
+\end{figure}
+
+\subsection{Micro 10}
+Cálculo de fatorial usando recursão.\\
+\lstinputlisting[language=C, caption={Micro 10 - Linguagem C}]{miniC/micro10.c}
+\lstinputlisting[language=CIL, caption={Micro 10 - CIL}]{ilasm/micro10.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 10}
+\includegraphics[scale=0.43]{programs_output/micro10.png}
+\end{figure}
+
+\subsection{Micro 11}
+Decide se um número é positivo, zero ou negativo com auxílio de uma função.\\
+\lstinputlisting[language=C, caption={Micro 11 - Linguagem C}]{miniC/micro11.c}
+\lstinputlisting[language=CIL, caption={Micro 11 - CIL}]{ilasm/micro11.txt}
+Saída:\newline\newline
+\begin{figure}
+\centering
+\caption{Saída do programa Micro 11}
+\includegraphics[scale=0.43]{programs_output/micro11.png}
+\end{figure}
+
+\chapter{Analisador Léxico}
+Nesta seção, será apresentada a construção do analisador léxico para a linguagem miniC, incluindo a definição dos tokens e o código desenvolvido para retornar a lista de tokens à partir de um programa escrito em miniC. Também serão apresentados os resultados da execução do analisador léxico sobre os programas de teste utilizados neste relatório (nano e micro).
+
+\subsection{Lista de tokens}
+A lista de tokens do analisador léxico foi definida com base nas palavras reservadas, operadores lógicos, operadores aritméticos e outros símbolos de marcação da linguagem miniC. A lista é apresentada abaixo na forma (TOKEN - "sequência de caracteres reconhecidos"):\\
+
+\textbf{Palavras-chave:}
+\begin{enumerate}
+    \item BREAK - "break"
+    \item CASE - "case"
+    \item DEFAULT - "default"
+    \item DO - "do"
+    \item ELSE - "else"
+    \item FALSE - "false"
+    \item FOR - "for"
+    \item IF - "if"
+    \item INCLUDE - "include"
+    \item NULL - "null"
+    \item RETURN - "return"
+    \item SWITCH - "switch"
+    \item TRUE - "true"
+    \item WHILE - "while"
+\end{enumerate}
+\textbf{Delimitadores de bloco:}
+\begin{enumerate}
+    \item OPEN\_PARENTHESIS - '('
+    \item CLOSE\_PARENTHESIS - ')'
+    \item OPEN\_BRACKETS - '['
+    \item CLOSE\_BRACKETS - ']'
+    \item OPEN\_CURLED\_BRACKETS - '{'
+    \item CLOSE\_CURLED\_BRACKETS - '}'
+\end{enumerate}
+\textbf{Marcadores:}
+\begin{enumerate}
+    \item ADDRESS - '\&'
+    \item COLON - ':'
+    \item COMA - ','
+    \item EOF - 'eof' (delimita final do arquivo)
+    \item SEMICOLON - ';'
+\end{enumerate}
+\textbf{Tipos:}
+\begin{enumerate}
+    \item BOOL - 'bool'
+    \item CHAR - 'char'
+    \item FLOAT - 'float'
+    \item INTEGER - 'integer'
+    \item VOID - 'void'
+\end{enumerate}
+\textbf{Operações lógicas:}
+\begin{enumerate}
+    \item EQUALS - '=='
+    \item DIFFERENT - '!='
+    \item LESS\_THAN - '<'
+    \item MORE\_THAN - '>'
+    \item LESS\_EQUAL\_THAN - '<='
+    \item MORE\_EQUAL\_THAN - '>='
+    \item NOT - '!'
+    \item OR - '||'
+    \item AND - '\&\&'
+\end{enumerate}
+\textbf{Operações aritméticas:}
+\begin{enumerate}
+    \item ATTRIBUTION - '='
+    \item ADDITION - '+'
+    \item SUBTRACTION - '-'
+    \item MULTIPLICATION - '*'
+    \item DIVISION - '/'
+    \item MODULE - '\%'
+    \item INCREMENT - '++'
+    \item DECREMENT - '--'
+    \item ADD\_ATTRIBUTION - '+='
+    \item SUB\_ATTRIBUTION - '-='
+    \item MUL\_ATTRIBUTION - '*='
+    \item DIV\_ATTRIBUTION - '/='
+\end{enumerate}
+\textbf{Literais:}
+\begin{enumerate}
+    \item LITERAL\_INTEGER - número inteiro
+    \item LITERAL\_FLOAT - número decimal com ponto
+    \item LITERAL\_CHAR - único caracter entre aspas simples
+    \item LITERAL\_STRING - sequência de caracteres entre aspas duplas
+    \item HEADER\_FILE - cabeçalho de arquivo local ou biblioteca terminado em ".h"
+    \item 
+\end{enumerate}
+\textbf{Outros:}
+\begin{enumerate}
+    \item ID - nome de variáveis ou funções (sequência de caracteres não iniciados com número)
+    \item ARROW\_OPERATION - '->'
+\end{enumerate}
+
+\subsection{Código do analisador léxico}
+A seguir, é apresentado o código do gerador analisador léxico, considerando os tokens definidos na seção anterior. Neste código, são definidos tokens e suas regras de conversão. A execução do gerador (.mll) pela ferramenta Ocamllex produz um arquivo .ml, que é posteriormente utilizado pelo compilador Ocaml.
+
+\lstinputlisting[language=Caml, caption={Lexical.mll}] {lexical/lexical.mll}
+
+
+\subsection{Código auxiliar}
+A seguir, é apresentado o código de um módulo de carregamento para facilitar a construção e execução do analisador léxico:
+
+\lstinputlisting[language=Caml, caption={Loader.ml}]{lexical/loader.ml}
+
+\subsection{Execução}
+Para compilar o gerador do analisador léxico, use o comando:\\
+\textbf{ocamllex lexical.mll}\\
+
+Para compilar o arquivo .ml gerado, use o comando:\\
+\textbf{ocamlc -c lexical.ml}\\
+
+Para iniciar o intérprete do ocaml, use o comando:\\
+\textbf{ocaml}\\
+
+Dentro do intérprete, utilize o módulo de carregamento com o seguinte comando:\\
+\textbf{\#use "loader.ml";;}\\
+
+Para executar o analisador léxico sobre um arquivo de entrada, use o comando:\\
+\textbf{lex "nome\_do\_arquivo";;}
+
+\subsection{Resultados}
+A seguir, são apresentados os resultados da execução do analisador léxico nos programas de teste utilizados durante o desenvolvimento.
+
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 01}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano01.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 02}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano02.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 03}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano03.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 04}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano04.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 05}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano05.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 06}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano06.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 07}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano07.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 08}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano08.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 09}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano09.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 10}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano10.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 11}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano11.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Nano 12}
+\includegraphics[scale=0.43]{lexical_output/lexical_nano12.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 01}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro01.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 02}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro02.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 03}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro03.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 04}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro04.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 05}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro05.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 06}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro06.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 07}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro07.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 08}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro08.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 09}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro09.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 10}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro10.png}
+\end{figure}
+\begin{figure}[!htbp]
+\centering
+\caption{Saída do analisador léxico para o programa Micro 11}
+\includegraphics[scale=0.43]{lexical_output/lexical_micro11.png}
+\end{figure}
+
+\end{document} 
