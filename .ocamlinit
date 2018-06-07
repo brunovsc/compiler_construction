@@ -1,0 +1,5 @@
+#directory "_build";;
+#load "lexico.cmo";;
+#load "sintatico.cmo";;
+#load "main.cmo";;
+open Main

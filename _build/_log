@@ -1,0 +1,7 @@
+### Starting build.
+# Target: sintatico_teste.ml.depends, tags: { extension:ml, file:sintatico_teste.ml, ocaml, ocamldep, package(menhirLib), quiet }
+ocamlfind ocamldep -package menhirLib -modules sintatico_teste.ml > sintatico_teste.ml.depends
++ ocamlfind ocamldep -package menhirLib -modules sintatico_teste.ml > sintatico_teste.ml.depends
+ocamlfind: Package `menhirLib' not found
+Command exited with code 2.
+# Compilation unsuccessful.

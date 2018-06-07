@@ -1,0 +1,5 @@
+"Resource: /home/compilers/Desktop/compiler_construction/sintatico_teste.ml": "`\233-\147\245u\127\024\167)@\153\229\251\226:"
+"Resource: /home/compilers/Desktop/compiler_construction/main.ml": "\212\029\140\217\143\000\178\004\233\128\t\152\236\248B~"
+"Rule: ocaml: cmo* -> byte (%=main )": "\191Q\197\014\153\220\2013\028\169L\207a\220\245*"
+"Rule: ocaml: ml -> cmo & cmi (%=main )": "\188\240\005Hd5\213E\155\154\020\128\030\n\134f"
+"Rule: ocaml dependencies ml (%=main )": "T\246\139\194\206A\005_\222b\218\221L\232(\014"
