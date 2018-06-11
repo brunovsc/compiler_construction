@@ -72,10 +72,6 @@ rule token =
 | "&&"       { AND }
 | "++"       { INCREMENT }
 | "--"       { DECREMENT }
-| "+="		   { ADD_ATTRIBUTION }
-| "-="		   { SUB_ATTRIBUTION }
-| "*="		   { MUL_ATTRIBUTION }
-| "/="		   { DIV_ATTRIBUTION }
 | "main"     { MAIN }
 | "int"      { INTEGER }
 | "float"    { FLOAT }
@@ -90,10 +86,6 @@ rule token =
 | "case"     { CASE }
 | "break"    { BREAK }
 | "default"  { DEFAULT }
-| "null"	   { NULL }
-| "true"	   { TRUE }
-| "false"	   { FALSE }
-| "void"	   { VOID }
 | "return"   { RETURN }
 | "printf"   { PRINTF }
 | "scanf"    { SCANF  }
@@ -106,7 +98,7 @@ rule token =
                let str = leia_string lin col buffer lexbuf in
                  LITERAL_STRING str }
 
-| header_file as hf { token lexbuf }
+| header_file { token lexbuf }
 
 | inteiro as num { let numero = int_of_string num in 
                     LITERAL_INTEGER numero }

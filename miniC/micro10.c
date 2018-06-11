@@ -9,7 +9,7 @@ int fatorial(int n){
 }
 
 int main(){
-	int numero,
+	int numero;
 	int fat;
 	printf("Digite um número: ");
 	scanf("%d", &numero);

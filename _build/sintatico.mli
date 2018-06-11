@@ -3,12 +3,8 @@
 
 type token = 
   | WHILE
-  | VOID
-  | TRUE
   | SWITCH
-  | SUB_ATTRIBUTION
   | SUBTRACTION
-  | STRING
   | SINGLE_QUOTE
   | SEMICOLON
   | SCANF
@@ -18,9 +14,7 @@ type token =
   | OPEN_PARENTHESIS
   | OPEN_CURLED_BRACKETS
   | OPEN_BRACKETS
-  | NULL
   | NOT
-  | MUL_ATTRIBUTION
   | MULTIPLICATION
   | MORE_THAN
   | MORE_EQUAL_THAN
@@ -40,12 +34,10 @@ type token =
   | HEADER_FILE of (string)
   | FOR
   | FLOAT
-  | FALSE
   | EQUALS
   | EOF
   | ELSE
   | DO
-  | DIV_ATTRIBUTION
   | DIVISION
   | DIFFERENT
   | DEFAULT
@@ -61,7 +53,6 @@ type token =
   | BOOL
   | ATTRIBUTION
   | AND
-  | ADD_ATTRIBUTION
   | ADDRESS
   | ADDITION
 

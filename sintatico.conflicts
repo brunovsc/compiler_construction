@@ -1,0 +1,30 @@
+
+** Conflict (shift/reduce) in state 30.
+** Token involved: ID
+** This state is reached from programa after reading:
+
+includes INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN CHAR 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+programa 
+includes funcoes EOF 
+         funcao funcoes 
+         INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS 
+                                                                                         comando SEMICOLON comandos 
+                                                                                         cmd_return 
+                                                                                         RETURN expressao SEMICOLON 
+                                                                                                (?)
+
+** In state 30, looking ahead at ID, shifting is permitted
+** because of the following sub-derivation:
+
+CHAR . ID OPEN_BRACKETS expressao CLOSE_BRACKETS 
+
+** In state 30, looking ahead at ID, reducing production
+** tipo -> CHAR 
+** is permitted because of the following sub-derivation:
+
+tipo ID OPEN_BRACKETS expressao CLOSE_BRACKETS // lookahead token appears
+CHAR . 

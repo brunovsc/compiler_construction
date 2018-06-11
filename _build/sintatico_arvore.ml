@@ -18,6 +18,7 @@ and comando = CmdAtrib  of expressao * expressao
             | CmdSwitch of expressao * cases * default option
             | CmdGetC   of string
             | CmdIncr   of expressao
+            | CmdDecr   of expressao
             | CmdReturn of expressao
 
 and expressao = ExpInt     of int
@@ -34,7 +35,7 @@ and expr = { valor: expressao;
              mutable tipoexp: tipo option
             }
 
-and operador = Add | Sub | Mul | Div
+and operador = Add | Sub | Mul | Div | Mod
              | More_Than | Less_Than | More_Equal_Than | Less_Equal_Than
              | Eq | Dif | Or | And | Not
 
