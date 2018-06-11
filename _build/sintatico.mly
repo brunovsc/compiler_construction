@@ -178,7 +178,6 @@ expressao:
          | NOT e=expressao   { ExpUn(Not, e) }
          | le=expressao op=oper re=expressao { ExpBin (op, le, re) }
          | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
-         /*| CHAR id=ID OPEN_BRACKETS expressao CLOSE_BRACKETS { ExpString id }*/
          | tipo id=ID OPEN_BRACKETS expressao CLOSE_BRACKETS { ExpVar id }
          | chama_func { $1 }
          ;

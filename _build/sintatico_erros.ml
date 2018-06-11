@@ -7,266 +7,266 @@ let message =
   fun s ->
     match s with
     | 0 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';'\n"
     | 4 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifer\n"
     | 5 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 6 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ')' or variable declarations\n"
     | 11 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifier\n"
     | 13 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ',' or ')'\n"
     | 14 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected variable declaration\n"
     | 17 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{'\n"
     | 19 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 20 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 71 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected Operation\n"
     | 72 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{'\n"
     | 73 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected command\n"
     | 180 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '}'\n"
     | 74 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 75 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 76 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ')'\n"
     | 77 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{'\n"
     | 78 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 'case'\n"
     | 173 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected commands\n"
     | 174 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected commands\n"
     | 176 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '}'\n"
     | 79 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 6string\n"
     | 80 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 5string\n"
     | 81 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected \"'\"\n"
     | 82 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ':'\n"
     | 83 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected commands\n"
     | 164 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 'switch' structure\n"
     | 165 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 'switch' structure\n"
     | 167 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ':'\n"
     | 168 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected commands\n"
     | 169 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Not expecting '}'\n"
     | 170 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '8;'\n"
     | 178 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Not expecting 'while'\n"
     | 18 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expecting commands\n"
     | 84 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 85 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 4string\n"
     | 86 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ',' or ')'\n"
     | 87 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '&'\n"
     | 88 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifer\n"
     | 89 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ',' or ')'\n"
     | 90 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';'\n"
     | 92 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 21 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 69 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ')'\n"
     | 22 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 93 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';'\n"
     | 34 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 35 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';' or expression\n"
     | 135 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '}' or commands\n"
     | 136 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '1-'\n"
     | 182 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'break'\n"
     | 43 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 2string\n"
     | 44 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '24while'\n"
     | 36 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '23while'\n"
     | 45 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '22while'\n"
     | 46 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '21while'\n"
     | 49 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '20while'\n"
     | 50 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected operator\n"
     | 39 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '18while'\n"
     | 51 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '17while'\n"
     | 52 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected operator or ')'\n"
     | 53 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '15while'\n"
     | 54 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '14while'\n"
     | 55 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '13while'\n"
     | 56 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '12while'\n"
     | 41 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '11while'\n"
     | 57 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '10while'\n"
     | 58 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '9while'\n"
     | 59 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '8while'\n"
     | 60 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '7while'\n"
     | 47 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '6while'\n"
     | 48 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';'\n"
     | 30 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '4while'\n"
     | 31 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '3while'\n"
     | 32 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '2while'\n"
     | 33 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '1while'\n"
     | 28 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected operator\n"
     | 29 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected arguments or ')'\n"
     | 95 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 96 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected 1string\n"
     | 65 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ',' or ')'\n"
     | 63 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifier\n"
     | 64 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 98 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';'\n"
     | 122 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifier\n"
     | 123 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ',' or ';' or attribution\n"
     | 124 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 125 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression or ';'\n"
     | 100 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 101 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 102 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 103 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{'\n"
     | 104 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifier\n"
     | 156 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'break'\n"
     | 157 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '8-'\n"
     | 158 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{'\n"
     | 159 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '7-'\n"
     | 160 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'break'\n"
     | 105 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 106 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '4;'\n"
     | 108 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '3;'\n"
     | 110 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 111 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression or ';'\n"
     | 113 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 114 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';' or variable\n"
     | 115 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected variable attribution or ';'\n"
     | 116 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 117 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 118 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ')'\n"
     | 119 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '6-'\n"
     | 151 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ')'\n"
     | 152 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{'\n"
     | 153 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '5-'\n"
     | 154 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'break'\n"
     | 120 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 121 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '4-'\n"
     | 128 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'break'\n"
     | 130 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '('\n"
     | 131 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected expression\n"
     | 132 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ')'\n"
     | 133 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '2;'\n"
     | 129 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'switch'\n"
     | 186 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '1;'\n"
     | 187 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected params or ')'\n"
     | 189 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected '{' or ';'\n"
     | 190 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected '3-'\n"
     | 191 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Unexpected 'break'\n"
     | 195 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Command 'while' out of function scope\n"
     | 3 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected ';'\n"
     | 185 ->
-        "<YOUR SYNTAX ERROR MESSAGE HERE>\n"
+        "Expected identifier after type 'float'\n"
     | _ ->
         raise Not_found

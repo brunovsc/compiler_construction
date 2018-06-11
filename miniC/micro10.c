@@ -13,7 +13,7 @@ int main(){
 	int fat;
 	printf("Digite um número: ");
 	scanf("%d", &numero);
-	fat = fatorial(numero);
+	fat = fatoria(numero);
 	printf("O fatorial de ");
 	printf("%d", numero);
 	printf(" é ");

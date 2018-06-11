@@ -680,7 +680,7 @@ module Tables = struct
         let _startpos = _startpos__1_ in
         let _endpos = _endpos__4_ in
         let _v : (Sintatico_arvore.expressao) = 
-# 203 "sintatico.mly"
+# 202 "sintatico.mly"
                                                        ( ChamaFunc(ExpVar _1, _3) )
 # 686 "sintatico.ml"
          in
@@ -2125,7 +2125,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 188 "sintatico.mly"
+# 187 "sintatico.mly"
                  ( Or )
 # 2131 "sintatico.ml"
           
@@ -2170,7 +2170,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 189 "sintatico.mly"
+# 188 "sintatico.mly"
                   ( And )
 # 2176 "sintatico.ml"
           
@@ -2215,7 +2215,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 190 "sintatico.mly"
+# 189 "sintatico.mly"
                        ( Add )
 # 2221 "sintatico.ml"
           
@@ -2260,7 +2260,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 191 "sintatico.mly"
+# 190 "sintatico.mly"
                           ( Sub )
 # 2266 "sintatico.ml"
           
@@ -2305,7 +2305,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 192 "sintatico.mly"
+# 191 "sintatico.mly"
                              ( Mul )
 # 2311 "sintatico.ml"
           
@@ -2350,7 +2350,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 193 "sintatico.mly"
+# 192 "sintatico.mly"
                        ( Div )
 # 2356 "sintatico.ml"
           
@@ -2395,7 +2395,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 194 "sintatico.mly"
+# 193 "sintatico.mly"
                         ( More_Than )
 # 2401 "sintatico.ml"
           
@@ -2440,7 +2440,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 195 "sintatico.mly"
+# 194 "sintatico.mly"
                         ( Less_Than )
 # 2446 "sintatico.ml"
           
@@ -2485,7 +2485,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 196 "sintatico.mly"
+# 195 "sintatico.mly"
                               ( More_Equal_Than )
 # 2491 "sintatico.ml"
           
@@ -2530,7 +2530,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 197 "sintatico.mly"
+# 196 "sintatico.mly"
                               ( Less_Equal_Than )
 # 2536 "sintatico.ml"
           
@@ -2575,7 +2575,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 198 "sintatico.mly"
+# 197 "sintatico.mly"
                      ( Eq )
 # 2581 "sintatico.ml"
           
@@ -2620,7 +2620,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 199 "sintatico.mly"
+# 198 "sintatico.mly"
                         ( Dif )
 # 2626 "sintatico.ml"
           
@@ -2665,7 +2665,7 @@ module Tables = struct
         let _v : (Sintatico_arvore.expressao) = let op =
           let _1 = _10 in
           
-# 200 "sintatico.mly"
+# 199 "sintatico.mly"
                      ( Mod )
 # 2671 "sintatico.ml"
           
@@ -2761,7 +2761,7 @@ module Tables = struct
         let _startpos = _startpos__1_ in
         let _endpos = _endpos__5_ in
         let _v : (Sintatico_arvore.expressao) = 
-# 182 "sintatico.mly"
+# 181 "sintatico.mly"
                                                              ( ExpVar id )
 # 2767 "sintatico.ml"
          in
@@ -2786,7 +2786,7 @@ module Tables = struct
         let _startpos = _startpos__1_ in
         let _endpos = _endpos__1_ in
         let _v : (Sintatico_arvore.expressao) = 
-# 183 "sintatico.mly"
+# 182 "sintatico.mly"
                       ( _1 )
 # 2792 "sintatico.ml"
          in
