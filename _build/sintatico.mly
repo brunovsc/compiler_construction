@@ -133,16 +133,6 @@ seqs: expressao { [$1] }
     ;
 
 expressao: 
-         | v=variavel        { ExpVar    v }
-         | i=LITERAL_INTEGER { ExpInt    i }
-         | f=LITERAL_FLOAT   { ExpFloat  f }
-         | c=LITERAL_CHAR    { ExpChar   c }
-         | s=LITERAL_STRING  { ExpString s }
-         | b=LITERAL_BOOL    { ExpBool   b }
-         | le=expressao op=oper re=expressao { ExpBin (op, le, re) }
-         | e=expressao op=oper re=expressao { ExpBin (op, le, re) }
-         | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
-expressao: 
          | ID { ExpVar $1 }
          | expressao AND expr10 { ExpBin(AND, $1, $3) }
          | expressao OR  expr10 { ExpBin(OR,  $1, $3) }
@@ -175,7 +165,12 @@ expr50: NOT expr50 { ExpUn(NOT, $2) }
       | expr60 { $1 }
       ;
 
-expr60: 
+expr60: LITERAL_INTEGER { ExpInt    $1 }
+      | LITERAL_FLOAT   { ExpFloat  $1 }
+      | LITERAL_CHAR    { ExpChar   $1 }
+      | LITERAL_STRING  { ExpString $1 }
+      | LITERAL_BOOL { ExpBool $1 }
+      | OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS { $2 }
       | chama_func { $1 }
       ;
 

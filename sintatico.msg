@@ -1,4 +1,16 @@
-programa: Include ECom 
+programa: FLOAT WHILE 
+##
+## Ends in an error in state: 175.
+##
+## funcao -> tipo . ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: HEADER_FILE ATTRIBUTION 
 ##
 ## Ends in an error in state: 3.
 ##
@@ -10,300 +22,244 @@ programa: Include ECom
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TFloat While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID CLOSE_CURLED_BRACKETS 
 ##
-## Ends in an error in state: 166.
+## Ends in an error in state: 181.
 ##
-## funcao -> tipo . Ident AParen argumentos FParen AChave comandos Return expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
-##
-## The known suffix of the stack is as follows:
-## tipo 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave GetChar FChave 
-##
-## Ends in an error in state: 172.
-##
-## funcao -> tipo Ident AParen argumentos FParen AChave comandos . Return expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## funcao -> tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos . RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen argumentos FParen AChave comandos 
+## tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return AParen STRING While 
-##
-## Ends in an error in state: 30.
-##
-## expr60 -> AParen expressao . FParen [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expressao -> expressao . And expr10 [ Or FParen And ]
-## expressao -> expressao . Or expr10 [ Or FParen And ]
-##
-## The known suffix of the stack is as follows:
-## AParen expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return AParen While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN ID OPEN_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 29.
 ##
-## expr60 -> AParen . expressao FParen [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## chama_func -> ID OPEN_PARENTHESIS . args CLOSE_PARENTHESIS [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## AParen 
+## ID OPEN_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return Ident AParen While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN ID VOID 
 ##
-## Ends in an error in state: 24.
+## Ends in an error in state: 30.
 ##
-## chama_func -> Ident AParen . args FParen [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## chama_func -> ID . OPEN_PARENTHESIS args CLOSE_PARENTHESIS [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expressao -> ID . [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
 ##
 ## The known suffix of the stack is as follows:
-## Ident AParen 
+## ID 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return Ident True 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING ADDITION LITERAL_STRING VOID 
 ##
-## Ends in an error in state: 23.
+## Ends in an error in state: 47.
 ##
-## chama_func -> Ident . AParen args FParen [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr60 -> Ident . [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## expr30 -> expr30 ADDITION expr40 . [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expr40 -> expr40 . MULTIPLICATION expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expr40 -> expr40 . DIVISION expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## Ident 
+## expr30 ADDITION expr40 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return Not While 
-##
-## Ends in an error in state: 22.
-##
-## expr50 -> Not . expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## Not 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING And While 
-##
-## Ends in an error in state: 60.
-##
-## expressao -> expressao And . expr10 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave DoisP Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expressao And 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING Comp While 
-##
-## Ends in an error in state: 57.
-##
-## expr10 -> expr10 Comp . expr20 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr10 Comp 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING Dif While 
-##
-## Ends in an error in state: 55.
-##
-## expr10 -> expr10 Dif . expr20 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr10 Dif 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING Maior While 
-##
-## Ends in an error in state: 52.
-##
-## expr20 -> expr20 Maior . expr30 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr20 Maior 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING MaiorI While 
-##
-## Ends in an error in state: 50.
-##
-## expr20 -> expr20 MaiorI . expr30 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr20 MaiorI 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING Menor While 
-##
-## Ends in an error in state: 48.
-##
-## expr20 -> expr20 Menor . expr30 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr20 Menor 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING MenorI While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING ADDITION WHILE 
 ##
 ## Ends in an error in state: 46.
 ##
-## expr20 -> expr20 MenorI . expr30 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## expr30 -> expr30 ADDITION . expr40 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## expr20 MenorI 
+## expr30 ADDITION 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING OpDiv While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING AND WHILE 
 ##
-## Ends in an error in state: 38.
+## Ends in an error in state: 62.
 ##
-## expr40 -> expr40 OpDiv . expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## expressao -> expressao AND . expr10 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
 ##
 ## The known suffix of the stack is as follows:
-## expr40 OpDiv 
+## expressao AND 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING OpMul While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING DIFFERENT WHILE 
 ##
-## Ends in an error in state: 35.
+## Ends in an error in state: 60.
 ##
-## expr40 -> expr40 OpMul . expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## expr10 -> expr10 DIFFERENT . expr20 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
 ##
 ## The known suffix of the stack is as follows:
-## expr40 OpMul 
+## expr10 DIFFERENT 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING OpSoma STRING True 
-##
-## Ends in an error in state: 44.
-##
-## expr30 -> expr30 OpSoma expr40 . [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr40 -> expr40 . OpMul expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr40 -> expr40 . OpDiv expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr30 OpSoma expr40 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING OpSoma While 
-##
-## Ends in an error in state: 43.
-##
-## expr30 -> expr30 OpSoma . expr40 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr30 OpSoma 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING OpSub STRING True 
-##
-## Ends in an error in state: 42.
-##
-## expr30 -> expr30 OpSub expr40 . [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr40 -> expr40 . OpMul expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr40 -> expr40 . OpDiv expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-##
-## The known suffix of the stack is as follows:
-## expr30 OpSub expr40 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Ident AParen FParen AChave Return STRING OpSub While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING DIVISION WHILE 
 ##
 ## Ends in an error in state: 41.
 ##
-## expr30 -> expr30 OpSub . expr40 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## expr40 -> expr40 DIVISION . expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## expr30 OpSub 
+## expr40 DIVISION 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING Or While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING EQUALS WHILE 
 ##
-## Ends in an error in state: 31.
+## Ends in an error in state: 58.
 ##
-## expressao -> expressao Or . expr10 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave DoisP Break Apost And ]
+## expr10 -> expr10 EQUALS . expr20 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
 ##
 ## The known suffix of the stack is as follows:
-## expressao Or 
+## expr10 EQUALS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING PTVirg While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING LESS_EQUAL_THAN WHILE 
 ##
-## Ends in an error in state: 175.
+## Ends in an error in state: 55.
 ##
-## funcao -> tipo Ident AParen argumentos FParen AChave comandos Return expressao PTVirg . FChave [ TInt TFloat TChar TBool EOF ]
+## expr20 -> expr20 LESS_EQUAL_THAN . expr30 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen argumentos FParen AChave comandos Return expressao PTVirg 
+## expr20 LESS_EQUAL_THAN 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING True 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING LESS_THAN WHILE 
+##
+## Ends in an error in state: 53.
+##
+## expr20 -> expr20 LESS_THAN . expr30 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+##
+## The known suffix of the stack is as follows:
+## expr20 LESS_THAN 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING MORE_EQUAL_THAN WHILE 
+##
+## Ends in an error in state: 51.
+##
+## expr20 -> expr20 MORE_EQUAL_THAN . expr30 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+##
+## The known suffix of the stack is as follows:
+## expr20 MORE_EQUAL_THAN 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING MORE_THAN WHILE 
+##
+## Ends in an error in state: 49.
+##
+## expr20 -> expr20 MORE_THAN . expr30 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+##
+## The known suffix of the stack is as follows:
+## expr20 MORE_THAN 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING MULTIPLICATION WHILE 
+##
+## Ends in an error in state: 38.
+##
+## expr40 -> expr40 MULTIPLICATION . expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+##
+## The known suffix of the stack is as follows:
+## expr40 MULTIPLICATION 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING OR WHILE 
 ##
 ## Ends in an error in state: 34.
 ##
-## expr30 -> expr40 . [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr40 -> expr40 . OpMul expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
-## expr40 -> expr40 . OpDiv expr50 [ While Virg TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or OpSub OpSoma OpMul OpDiv MenorI Menor MaiorI Maior If Ident GetChar For FParen FChave DoisP Dif Comp Break Apost And ]
+## expressao -> expressao OR . expr10 [ WHILE SWITCH SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+##
+## The known suffix of the stack is as follows:
+## expressao OR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING SEMICOLON WHILE 
+##
+## Ends in an error in state: 184.
+##
+## funcao -> tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON . CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING SUBTRACTION LITERAL_STRING VOID 
+##
+## Ends in an error in state: 45.
+##
+## expr30 -> expr30 SUBTRACTION expr40 . [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expr40 -> expr40 . MULTIPLICATION expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expr40 -> expr40 . DIVISION expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+##
+## The known suffix of the stack is as follows:
+## expr30 SUBTRACTION expr40 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING SUBTRACTION WHILE 
+##
+## Ends in an error in state: 44.
+##
+## expr30 -> expr30 SUBTRACTION . expr40 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+##
+## The known suffix of the stack is as follows:
+## expr30 SUBTRACTION 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING VOID 
+##
+## Ends in an error in state: 37.
+##
+## expr30 -> expr40 . [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expr40 -> expr40 . MULTIPLICATION expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expr40 -> expr40 . DIVISION expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
 ## expr40 
@@ -311,92 +267,151 @@ programa: TInt Ident AParen FParen AChave Return STRING True
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return STRING While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN LITERAL_STRING WHILE 
 ##
-## Ends in an error in state: 174.
+## Ends in an error in state: 183.
 ##
-## expressao -> expressao . And expr10 [ PTVirg Or And ]
-## expressao -> expressao . Or expr10 [ PTVirg Or And ]
-## funcao -> tipo Ident AParen argumentos FParen AChave comandos Return expressao . PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## expressao -> expressao . AND expr10 [ SEMICOLON OR AND ]
+## expressao -> expressao . OR expr10 [ SEMICOLON OR AND ]
+## funcao -> tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao . SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen argumentos FParen AChave comandos Return expressao 
+## tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Return While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN NOT ID WHILE 
 ##
-## Ends in an error in state: 173.
+## Ends in an error in state: 28.
 ##
-## funcao -> tipo Ident AParen argumentos FParen AChave comandos Return . expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## chama_func -> ID . OPEN_PARENTHESIS args CLOSE_PARENTHESIS [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen argumentos FParen AChave comandos Return 
+## ID 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen AChave Virg 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN NOT WHILE 
 ##
-## Ends in an error in state: 171.
+## Ends in an error in state: 22.
 ##
-## funcao -> tipo Ident AParen argumentos FParen AChave . comandos Return expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## expr50 -> NOT . expr50 [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen argumentos FParen AChave 
+## NOT 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen FParen While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN OPEN_PARENTHESIS LITERAL_STRING WHILE 
 ##
-## Ends in an error in state: 170.
+## Ends in an error in state: 69.
 ##
-## funcao -> tipo Ident AParen argumentos FParen . AChave comandos Return expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## expr60 -> OPEN_PARENTHESIS expressao . CLOSE_PARENTHESIS [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
+## expressao -> expressao . AND expr10 [ OR CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR CLOSE_PARENTHESIS AND ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen argumentos FParen 
+## OPEN_PARENTHESIS expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident AParen While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN OPEN_PARENTHESIS WHILE 
 ##
-## Ends in an error in state: 168.
+## Ends in an error in state: 21.
 ##
-## funcao -> tipo Ident AParen . argumentos FParen AChave comandos Return expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## expr60 -> OPEN_PARENTHESIS . expressao CLOSE_PARENTHESIS [ WHILE SWITCH SUBTRACTION SINGLE_QUOTE SEMICOLON SCANF RETURN PRINTF OR MULTIPLICATION MORE_THAN MORE_EQUAL_THAN LESS_THAN LESS_EQUAL_THAN INTEGER IF ID FOR FLOAT EQUALS DO DIVISION DIFFERENT COMA COLON CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ADDITION ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident AParen 
+## OPEN_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Ident While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS RETURN WHILE 
 ##
-## Ends in an error in state: 167.
+## Ends in an error in state: 182.
 ##
-## funcao -> tipo Ident . AParen argumentos FParen AChave comandos Return expressao PTVirg FChave [ TInt TFloat TChar TBool EOF ]
+## funcao -> tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN . expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident 
+## tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave FChave While 
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 180.
+##
+## funcao -> tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS . comandos RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS CLOSE_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 179.
+##
+## funcao -> tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS . OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID OPEN_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 177.
+##
+## funcao -> tipo ID OPEN_PARENTHESIS . argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo ID OPEN_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER ID WHILE 
+##
+## Ends in an error in state: 176.
+##
+## funcao -> tipo ID . OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS WHILE 
+##
+## Ends in an error in state: 188.
 ##
 ## funcoes -> funcao . funcoes [ EOF ]
 ##
@@ -406,446 +421,647 @@ programa: TInt Main AParen FParen AChave FChave While
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg STRING PTVirg GetChar FParen AChave GetChar Break 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS VOID 
 ##
 ## Ends in an error in state: 119.
 ##
-## cmd_for -> For AParen cmd_atrib PTVirg expressao PTVirg comando FParen AChave comandos . FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_do -> DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS . WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg expressao PTVirg comando FParen AChave comandos 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
+## DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg STRING PTVirg GetChar FParen AChave Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS WHILE 
 ##
-## Ends in an error in state: 118.
+## Ends in an error in state: 123.
 ##
-## cmd_for -> For AParen cmd_atrib PTVirg expressao PTVirg comando FParen AChave . comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_do -> DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS . SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg expressao PTVirg comando FParen AChave 
+## DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg STRING PTVirg GetChar FParen While 
-##
-## Ends in an error in state: 117.
-##
-## cmd_for -> For AParen cmd_atrib PTVirg expressao PTVirg comando FParen . AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg expressao PTVirg comando FParen 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg STRING PTVirg GetChar While 
-##
-## Ends in an error in state: 116.
-##
-## cmd_for -> For AParen cmd_atrib PTVirg expressao PTVirg comando . FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg expressao PTVirg comando 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg STRING PTVirg Virg 
-##
-## Ends in an error in state: 110.
-##
-## cmd_for -> For AParen cmd_atrib PTVirg expressao PTVirg . comando FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg expressao PTVirg 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg STRING While 
-##
-## Ends in an error in state: 109.
-##
-## cmd_for -> For AParen cmd_atrib PTVirg expressao . PTVirg comando FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## expressao -> expressao . And expr10 [ PTVirg Or And ]
-## expressao -> expressao . Or expr10 [ PTVirg Or And ]
-##
-## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL PTVirg While 
-##
-## Ends in an error in state: 108.
-##
-## cmd_for -> For AParen cmd_atrib PTVirg . expressao PTVirg comando FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For AParen cmd_atrib PTVirg 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen Ident Atrib BOOL While 
-##
-## Ends in an error in state: 107.
-##
-## cmd_for -> For AParen cmd_atrib . PTVirg expressao PTVirg comando FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For AParen cmd_atrib 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-## In state 102, spurious reduction of production cmd_atrib -> Ident Atrib expressao 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen Ident While 
-##
-## Ends in an error in state: 106.
-##
-## cmd_atrib -> Ident . Atrib expressao [ PTVirg ]
-##
-## The known suffix of the stack is as follows:
-## Ident 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For AParen While 
-##
-## Ends in an error in state: 105.
-##
-## cmd_for -> For AParen . cmd_atrib PTVirg expressao PTVirg comando FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For AParen 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave For While 
-##
-## Ends in an error in state: 104.
-##
-## cmd_for -> For . AParen cmd_atrib PTVirg expressao PTVirg comando FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## For 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave GetChar Break 
-##
-## Ends in an error in state: 163.
-##
-## funcao -> TInt Main AParen argumentos FParen AChave comandos . FChave [ TInt TFloat TChar TBool EOF ]
-##
-## The known suffix of the stack is as follows:
-## TInt Main AParen argumentos FParen AChave comandos 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave GetChar PTVirg Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS LITERAL_STRING WHILE 
 ##
 ## Ends in an error in state: 122.
 ##
-## comandos -> comando PTVirg . comandos [ Return FChave Break ]
+## cmd_do -> DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao . CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ OR CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR CLOSE_PARENTHESIS AND ]
 ##
 ## The known suffix of the stack is as follows:
-## comando PTVirg 
+## DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave GetChar Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 121.
 ##
-## comandos -> comando . PTVirg comandos [ Return FChave Break ]
-## comandos -> comando . comandos [ Return FChave Break ]
+## cmd_do -> DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS . expressao CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS WHILE WHILE 
+##
+## Ends in an error in state: 120.
+##
+## cmd_do -> DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE . OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS INTEGER ID BREAK 
+##
+## Ends in an error in state: 118.
+##
+## cmd_do -> DO OPEN_CURLED_BRACKETS comandos . CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## DO OPEN_CURLED_BRACKETS comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 112.
+##
+## cmd_do -> DO OPEN_CURLED_BRACKETS . comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## DO OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DO WHILE 
+##
+## Ends in an error in state: 111.
+##
+## cmd_do -> DO . OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## DO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON LITERAL_STRING SEMICOLON INTEGER ID CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID BREAK 
+##
+## Ends in an error in state: 142.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos . CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON LITERAL_STRING SEMICOLON INTEGER ID CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 141.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS . comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON LITERAL_STRING SEMICOLON INTEGER ID CLOSE_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 140.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS . OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON LITERAL_STRING SEMICOLON INTEGER ID WHILE 
+##
+## Ends in an error in state: 139.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando . CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON LITERAL_STRING SEMICOLON VOID 
+##
+## Ends in an error in state: 110.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON . comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON LITERAL_STRING WHILE 
+##
+## Ends in an error in state: 109.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao . SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ SEMICOLON OR AND ]
+## expressao -> expressao . OR expr10 [ SEMICOLON OR AND ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID SEMICOLON WHILE 
+##
+## Ends in an error in state: 108.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON . expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID ATTRIBUTION ID WHILE 
+##
+## Ends in an error in state: 107.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS cmd_atrib . SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS cmd_atrib 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 30, spurious reduction of production expressao -> ID 
+## In state 103, spurious reduction of production cmd_atrib -> ID ATTRIBUTION expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS ID WHILE 
+##
+## Ends in an error in state: 106.
+##
+## cmd_atrib -> ID . ATTRIBUTION expressao [ SEMICOLON ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR OPEN_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 105.
+##
+## cmd_for -> FOR OPEN_PARENTHESIS . cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR OPEN_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS FOR WHILE 
+##
+## Ends in an error in state: 104.
+##
+## cmd_for -> FOR . OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## FOR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS ID ATTRIBUTION LITERAL_STRING SINGLE_QUOTE 
+##
+## Ends in an error in state: 103.
+##
+## cmd_atrib -> ID ATTRIBUTION expressao . [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+## expressao -> expressao . OR expr10 [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+##
+## The known suffix of the stack is as follows:
+## ID ATTRIBUTION expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS ID ATTRIBUTION WHILE 
+##
+## Ends in an error in state: 102.
+##
+## cmd_atrib -> ID ATTRIBUTION . expressao [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ID ATTRIBUTION 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS ID WHILE 
+##
+## Ends in an error in state: 100.
+##
+## cmd_atrib -> ID . ATTRIBUTION expressao [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## cmd_incr -> ID . INCREMENT [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS ELSE OPEN_CURLED_BRACKETS INTEGER ID BREAK 
+##
+## Ends in an error in state: 148.
+##
+## elsee -> ELSE OPEN_CURLED_BRACKETS comandos . CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ELSE OPEN_CURLED_BRACKETS comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS ELSE OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 147.
+##
+## elsee -> ELSE OPEN_CURLED_BRACKETS . comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ELSE OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS ELSE WHILE 
+##
+## Ends in an error in state: 146.
+##
+## elsee -> ELSE . OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## elsee -> ELSE . cmd_if [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ELSE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CLOSE_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 145.
+##
+## cmd_if -> IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS . elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID BREAK 
+##
+## Ends in an error in state: 144.
+##
+## cmd_if -> IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos . CLOSE_CURLED_BRACKETS elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 99.
+##
+## cmd_if -> IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS . comandos CLOSE_CURLED_BRACKETS elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 98.
+##
+## cmd_if -> IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS . OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS LITERAL_STRING WHILE 
+##
+## Ends in an error in state: 97.
+##
+## cmd_if -> IF OPEN_PARENTHESIS expressao . CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ OR CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR CLOSE_PARENTHESIS AND ]
+##
+## The known suffix of the stack is as follows:
+## IF OPEN_PARENTHESIS expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF OPEN_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 96.
+##
+## cmd_if -> IF OPEN_PARENTHESIS . expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## IF OPEN_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS IF WHILE 
+##
+## Ends in an error in state: 95.
+##
+## cmd_if -> IF . OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS elsee [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## IF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID ATTRIBUTION LITERAL_STRING SINGLE_QUOTE 
+##
+## Ends in an error in state: 116.
+##
+## expressao -> expressao . AND expr10 [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+## expressao -> expressao . OR expr10 [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF OR INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL AND ]
+## inicial -> ATTRIBUTION expressao . [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ATTRIBUTION expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID ATTRIBUTION WHILE 
+##
+## Ends in an error in state: 115.
+##
+## inicial -> ATTRIBUTION . expressao [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## ATTRIBUTION 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID BREAK 
+##
+## Ends in an error in state: 172.
+##
+## funcao -> INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos . CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID CLOSE_PARENTHESIS 
+##
+## Ends in an error in state: 125.
+##
+## comandos -> comando . SEMICOLON comandos [ RETURN CLOSE_CURLED_BRACKETS BREAK ]
+## comandos -> comando . comandos [ RETURN CLOSE_CURLED_BRACKETS BREAK ]
 ##
 ## The known suffix of the stack is as follows:
 ## comando 
 ##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Ident Atrib STRING Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID SEMICOLON VOID 
 ##
-## Ends in an error in state: 102.
+## Ends in an error in state: 126.
 ##
-## cmd_atrib -> Ident Atrib expressao . [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## expressao -> expressao . And expr10 [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave Break And ]
-## expressao -> expressao . Or expr10 [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave Break And ]
+## comandos -> comando SEMICOLON . comandos [ RETURN CLOSE_CURLED_BRACKETS BREAK ]
 ##
 ## The known suffix of the stack is as follows:
-## Ident Atrib expressao 
+## comando SEMICOLON 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID VOID 
+##
+## Ends in an error in state: 114.
+##
+## cmd_dec -> tipo ID . inicial [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER WHILE 
+##
+## Ends in an error in state: 113.
+##
+## cmd_dec -> tipo . ID inicial [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## tipo 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS PRINTF OPEN_PARENTHESIS LITERAL_STRING COMA LITERAL_STRING WHILE 
+##
+## Ends in an error in state: 33.
+##
+## expressao -> expressao . AND expr10 [ OR COMA CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR COMA CLOSE_PARENTHESIS AND ]
+## seqs -> seqs COMA expressao . [ COMA CLOSE_PARENTHESIS ]
+##
+## The known suffix of the stack is as follows:
+## seqs COMA expressao 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Ident Atrib While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS PRINTF OPEN_PARENTHESIS LITERAL_STRING COMA WHILE 
 ##
-## Ends in an error in state: 101.
+## Ends in an error in state: 32.
 ##
-## cmd_atrib -> Ident Atrib . expressao [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## seqs -> seqs COMA . expressao [ COMA CLOSE_PARENTHESIS ]
 ##
 ## The known suffix of the stack is as follows:
-## Ident Atrib 
+## seqs COMA 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Ident While 
-##
-## Ends in an error in state: 99.
-##
-## cmd_atrib -> Ident . Atrib expressao [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## cmd_incr -> Ident . Inc [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Ident 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen AChave FChave Else AChave GetChar Break 
-##
-## Ends in an error in state: 139.
-##
-## elsee -> Else AChave comandos . FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Else AChave comandos 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen AChave FChave Else AChave Virg 
-##
-## Ends in an error in state: 138.
-##
-## elsee -> Else AChave . comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Else AChave 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen AChave FChave Else While 
-##
-## Ends in an error in state: 137.
-##
-## elsee -> Else . AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## elsee -> Else . cmd_if [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Else 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen AChave FChave Virg 
-##
-## Ends in an error in state: 136.
-##
-## cmd_if -> If AParen expressao FParen AChave comandos FChave . elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## If AParen expressao FParen AChave comandos FChave 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen AChave GetChar Break 
-##
-## Ends in an error in state: 135.
-##
-## cmd_if -> If AParen expressao FParen AChave comandos . FChave elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## If AParen expressao FParen AChave comandos 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen AChave Virg 
-##
-## Ends in an error in state: 98.
-##
-## cmd_if -> If AParen expressao FParen AChave . comandos FChave elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## If AParen expressao FParen AChave 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING FParen While 
-##
-## Ends in an error in state: 97.
-##
-## cmd_if -> If AParen expressao FParen . AChave comandos FChave elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## If AParen expressao FParen 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen STRING While 
-##
-## Ends in an error in state: 96.
-##
-## cmd_if -> If AParen expressao . FParen AChave comandos FChave elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## expressao -> expressao . And expr10 [ Or FParen And ]
-## expressao -> expressao . Or expr10 [ Or FParen And ]
-##
-## The known suffix of the stack is as follows:
-## If AParen expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If AParen While 
-##
-## Ends in an error in state: 95.
-##
-## cmd_if -> If AParen . expressao FParen AChave comandos FChave elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## If AParen 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave If While 
-##
-## Ends in an error in state: 94.
-##
-## cmd_if -> If . AParen expressao FParen AChave comandos FChave elsee [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## If 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Printf AParen STRING Virg STRING While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS PRINTF OPEN_PARENTHESIS LITERAL_STRING WHILE 
 ##
 ## Ends in an error in state: 65.
 ##
-## expressao -> expressao . And expr10 [ Virg Or FParen And ]
-## expressao -> expressao . Or expr10 [ Virg Or FParen And ]
-## seqs -> seqs Virg expressao . [ Virg FParen ]
-##
-## The known suffix of the stack is as follows:
-## seqs Virg expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Printf AParen STRING Virg While 
-##
-## Ends in an error in state: 64.
-##
-## seqs -> seqs Virg . expressao [ Virg FParen ]
-##
-## The known suffix of the stack is as follows:
-## seqs Virg 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Printf AParen STRING While 
-##
-## Ends in an error in state: 66.
-##
-## expressao -> expressao . And expr10 [ Virg Or FParen And ]
-## expressao -> expressao . Or expr10 [ Virg Or FParen And ]
-## seqs -> expressao . [ Virg FParen ]
+## expressao -> expressao . AND expr10 [ OR COMA CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR COMA CLOSE_PARENTHESIS AND ]
+## seqs -> expressao . [ COMA CLOSE_PARENTHESIS ]
 ##
 ## The known suffix of the stack is as follows:
 ## expressao 
@@ -854,216 +1070,126 @@ programa: TInt Main AParen FParen AChave Printf AParen STRING While
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Printf AParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS PRINTF OPEN_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 92.
+##
+## cmd_printf -> PRINTF OPEN_PARENTHESIS . args CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## PRINTF OPEN_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS PRINTF WHILE 
 ##
 ## Ends in an error in state: 91.
 ##
-## cmd_printf -> Printf AParen . args FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_printf -> PRINTF . OPEN_PARENTHESIS args CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## Printf AParen 
+## PRINTF 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Printf While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SCANF OPEN_PARENTHESIS LITERAL_STRING COMA ADDRESS ID WHILE 
 ##
-## Ends in an error in state: 90.
+## Ends in an error in state: 89.
 ##
-## cmd_printf -> Printf . AParen args FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_scanf -> SCANF OPEN_PARENTHESIS expressao COMA ADDRESS ID . CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## Printf 
+## SCANF OPEN_PARENTHESIS expressao COMA ADDRESS ID 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Scanf AParen STRING Virg ECom Ident While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SCANF OPEN_PARENTHESIS LITERAL_STRING COMA ADDRESS WHILE 
 ##
 ## Ends in an error in state: 88.
 ##
-## cmd_scanf -> Scanf AParen expressao Virg ECom Ident . FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_scanf -> SCANF OPEN_PARENTHESIS expressao COMA ADDRESS . ID CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## Scanf AParen expressao Virg ECom Ident 
+## SCANF OPEN_PARENTHESIS expressao COMA ADDRESS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Scanf AParen STRING Virg ECom While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SCANF OPEN_PARENTHESIS LITERAL_STRING COMA WHILE 
 ##
 ## Ends in an error in state: 87.
 ##
-## cmd_scanf -> Scanf AParen expressao Virg ECom . Ident FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_scanf -> SCANF OPEN_PARENTHESIS expressao COMA . ADDRESS ID CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## Scanf AParen expressao Virg ECom 
+## SCANF OPEN_PARENTHESIS expressao COMA 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Scanf AParen STRING Virg While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SCANF OPEN_PARENTHESIS LITERAL_STRING WHILE 
 ##
 ## Ends in an error in state: 86.
 ##
-## cmd_scanf -> Scanf AParen expressao Virg . ECom Ident FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_scanf -> SCANF OPEN_PARENTHESIS expressao . COMA ADDRESS ID CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ OR COMA AND ]
+## expressao -> expressao . OR expr10 [ OR COMA AND ]
 ##
 ## The known suffix of the stack is as follows:
-## Scanf AParen expressao Virg 
+## SCANF OPEN_PARENTHESIS expressao 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Scanf AParen STRING While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SCANF OPEN_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 85.
 ##
-## cmd_scanf -> Scanf AParen expressao . Virg ECom Ident FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## expressao -> expressao . And expr10 [ Virg Or And ]
-## expressao -> expressao . Or expr10 [ Virg Or And ]
+## cmd_scanf -> SCANF OPEN_PARENTHESIS . expressao COMA ADDRESS ID CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## Scanf AParen expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## SCANF OPEN_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Scanf AParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SCANF WHILE 
 ##
 ## Ends in an error in state: 84.
 ##
-## cmd_scanf -> Scanf AParen . expressao Virg ECom Ident FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_scanf -> SCANF . OPEN_PARENTHESIS expressao COMA ADDRESS ID CLOSE_PARENTHESIS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## Scanf AParen 
+## SCANF 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Scanf While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE LITERAL_STRING COLON BREAK SEMICOLON WHILE 
 ##
-## Ends in an error in state: 83.
+## Ends in an error in state: 168.
 ##
-## cmd_scanf -> Scanf . AParen expressao Virg ECom Ident FParen [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Scanf 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case Apost STRING Apost DoisP Break While 
-##
-## Ends in an error in state: 144.
-##
-## case -> Case Apost expressao Apost DoisP comandos Break . PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case Apost expressao Apost DoisP comandos Break 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case Apost STRING Apost DoisP GetChar Return 
-##
-## Ends in an error in state: 143.
-##
-## case -> Case Apost expressao Apost DoisP comandos . Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case Apost expressao Apost DoisP comandos 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case Apost STRING Apost DoisP Virg 
-##
-## Ends in an error in state: 82.
-##
-## case -> Case Apost expressao Apost DoisP . comandos Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case Apost expressao Apost DoisP 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case Apost STRING Apost While 
-##
-## Ends in an error in state: 81.
-##
-## case -> Case Apost expressao Apost . DoisP comandos Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case Apost expressao Apost 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case Apost STRING While 
-##
-## Ends in an error in state: 80.
-##
-## case -> Case Apost expressao . Apost DoisP comandos Break PTVirg [ Default Case ]
-## expressao -> expressao . And expr10 [ Or Apost And ]
-## expressao -> expressao . Or expr10 [ Or Apost And ]
-##
-## The known suffix of the stack is as follows:
-## Case Apost expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case Apost While 
-##
-## Ends in an error in state: 79.
-##
-## case -> Case Apost . expressao Apost DoisP comandos Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case Apost 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case STRING DoisP Break PTVirg While 
-##
-## Ends in an error in state: 159.
-##
-## cases -> case . cases [ Default ]
+## cases -> case . cases [ DEFAULT ]
 ##
 ## The known suffix of the stack is as follows:
 ## case 
@@ -1071,414 +1197,457 @@ programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case STRING DoisP Break While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE LITERAL_STRING COLON BREAK WHILE 
 ##
-## Ends in an error in state: 149.
+## Ends in an error in state: 158.
 ##
-## case -> Case expressao DoisP comandos Break . PTVirg [ Default Case ]
+## case -> CASE expressao COLON comandos BREAK . SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Case expressao DoisP comandos Break 
+## CASE expressao COLON comandos BREAK 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case STRING DoisP GetChar Return 
-##
-## Ends in an error in state: 148.
-##
-## case -> Case expressao DoisP comandos . Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case expressao DoisP comandos 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case STRING DoisP Virg 
-##
-## Ends in an error in state: 147.
-##
-## case -> Case expressao DoisP . comandos Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case expressao DoisP 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case STRING While 
-##
-## Ends in an error in state: 146.
-##
-## case -> Case expressao . DoisP comandos Break PTVirg [ Default Case ]
-## expressao -> expressao . And expr10 [ Or DoisP And ]
-## expressao -> expressao . Or expr10 [ Or DoisP And ]
-##
-## The known suffix of the stack is as follows:
-## Case expressao 
-##
-## WARNING: This example involves spurious reductions.
-## This implies that, although the LR(1) items shown above provide an
-## accurate view of the past (what has been recognized so far), they
-## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Case While 
-##
-## Ends in an error in state: 78.
-##
-## case -> Case . expressao DoisP comandos Break PTVirg [ Default Case ]
-## case -> Case . Apost expressao Apost DoisP comandos Break PTVirg [ Default Case ]
-##
-## The known suffix of the stack is as follows:
-## Case 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Default DoisP Break PTVirg While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE LITERAL_STRING COLON INTEGER ID RETURN 
 ##
 ## Ends in an error in state: 157.
 ##
-## cmd_switch -> Switch AParen expressao FParen AChave cases default . FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## case -> CASE expressao COLON comandos . BREAK SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Switch AParen expressao FParen AChave cases default 
+## CASE expressao COLON comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Default DoisP Break While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE LITERAL_STRING COLON VOID 
+##
+## Ends in an error in state: 156.
+##
+## case -> CASE expressao COLON . comandos BREAK SEMICOLON [ DEFAULT CASE ]
+##
+## The known suffix of the stack is as follows:
+## CASE expressao COLON 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE LITERAL_STRING WHILE 
 ##
 ## Ends in an error in state: 155.
 ##
-## default -> Default DoisP comandos Break . PTVirg [ FChave ]
+## case -> CASE expressao . COLON comandos BREAK SEMICOLON [ DEFAULT CASE ]
+## expressao -> expressao . AND expr10 [ OR COLON AND ]
+## expressao -> expressao . OR expr10 [ OR COLON AND ]
 ##
 ## The known suffix of the stack is as follows:
-## Default DoisP comandos Break 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Default DoisP GetChar Return 
-##
-## Ends in an error in state: 154.
-##
-## default -> Default DoisP comandos . Break PTVirg [ FChave ]
-##
-## The known suffix of the stack is as follows:
-## Default DoisP comandos 
+## CASE expressao 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Default DoisP Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE SINGLE_QUOTE LITERAL_STRING SINGLE_QUOTE COLON BREAK WHILE 
 ##
 ## Ends in an error in state: 153.
 ##
-## default -> Default DoisP . comandos Break PTVirg [ FChave ]
+## case -> CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos BREAK . SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Default DoisP 
+## CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos BREAK 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave Default While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE SINGLE_QUOTE LITERAL_STRING SINGLE_QUOTE COLON INTEGER ID RETURN 
 ##
 ## Ends in an error in state: 152.
 ##
-## default -> Default . DoisP comandos Break PTVirg [ FChave ]
+## case -> CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos . BREAK SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Default 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen AChave While 
-##
-## Ends in an error in state: 77.
-##
-## cmd_switch -> Switch AParen expressao FParen AChave . cases default FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Switch AParen expressao FParen AChave 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING FParen While 
-##
-## Ends in an error in state: 76.
-##
-## cmd_switch -> Switch AParen expressao FParen . AChave cases default FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-##
-## The known suffix of the stack is as follows:
-## Switch AParen expressao FParen 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave Switch AParen STRING While 
-##
-## Ends in an error in state: 75.
-##
-## cmd_switch -> Switch AParen expressao . FParen AChave cases default FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## expressao -> expressao . And expr10 [ Or FParen And ]
-## expressao -> expressao . Or expr10 [ Or FParen And ]
-##
-## The known suffix of the stack is as follows:
-## Switch AParen expressao 
+## CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch AParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE SINGLE_QUOTE LITERAL_STRING SINGLE_QUOTE COLON VOID 
 ##
-## Ends in an error in state: 74.
+## Ends in an error in state: 83.
 ##
-## cmd_switch -> Switch AParen . expressao FParen AChave cases default FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## case -> CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON . comandos BREAK SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Switch AParen 
+## CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Switch While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE SINGLE_QUOTE LITERAL_STRING SINGLE_QUOTE WHILE 
 ##
-## Ends in an error in state: 73.
+## Ends in an error in state: 82.
 ##
-## cmd_switch -> Switch . AParen expressao FParen AChave cases default FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## case -> CASE SINGLE_QUOTE expressao SINGLE_QUOTE . COLON comandos BREAK SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Switch 
+## CASE SINGLE_QUOTE expressao SINGLE_QUOTE 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave TInt Ident Atrib STRING Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE SINGLE_QUOTE LITERAL_STRING WHILE 
 ##
-## Ends in an error in state: 114.
+## Ends in an error in state: 81.
 ##
-## expressao -> expressao . And expr10 [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave Break And ]
-## expressao -> expressao . Or expr10 [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg Or If Ident GetChar For FParen FChave Break And ]
-## inicial -> Atrib expressao . [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## case -> CASE SINGLE_QUOTE expressao . SINGLE_QUOTE COLON comandos BREAK SEMICOLON [ DEFAULT CASE ]
+## expressao -> expressao . AND expr10 [ SINGLE_QUOTE OR AND ]
+## expressao -> expressao . OR expr10 [ SINGLE_QUOTE OR AND ]
 ##
 ## The known suffix of the stack is as follows:
-## Atrib expressao 
+## CASE SINGLE_QUOTE expressao 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave TInt Ident Atrib While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE SINGLE_QUOTE WHILE 
 ##
-## Ends in an error in state: 113.
+## Ends in an error in state: 80.
 ##
-## inicial -> Atrib . expressao [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## case -> CASE SINGLE_QUOTE . expressao SINGLE_QUOTE COLON comandos BREAK SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## Atrib 
+## CASE SINGLE_QUOTE 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave TInt Ident Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS CASE WHILE 
 ##
-## Ends in an error in state: 112.
+## Ends in an error in state: 79.
 ##
-## cmd_dec -> tipo Ident . inicial [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## case -> CASE . expressao COLON comandos BREAK SEMICOLON [ DEFAULT CASE ]
+## case -> CASE . SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos BREAK SEMICOLON [ DEFAULT CASE ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo Ident 
+## CASE 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave TInt While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DEFAULT COLON BREAK SEMICOLON WHILE 
 ##
-## Ends in an error in state: 111.
+## Ends in an error in state: 166.
 ##
-## cmd_dec -> tipo . Ident inicial [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_switch -> SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cases default . CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## tipo 
+## SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cases default 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DEFAULT COLON BREAK WHILE 
 ##
-## Ends in an error in state: 18.
+## Ends in an error in state: 164.
 ##
-## funcao -> TInt Main AParen argumentos FParen AChave . comandos FChave [ TInt TFloat TChar TBool EOF ]
+## default -> DEFAULT COLON comandos BREAK . SEMICOLON [ CLOSE_CURLED_BRACKETS ]
 ##
 ## The known suffix of the stack is as follows:
-## TInt Main AParen argumentos FParen AChave 
+## DEFAULT COLON comandos BREAK 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave While AParen STRING FParen AChave GetChar Break 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DEFAULT COLON INTEGER ID RETURN 
+##
+## Ends in an error in state: 163.
+##
+## default -> DEFAULT COLON comandos . BREAK SEMICOLON [ CLOSE_CURLED_BRACKETS ]
+##
+## The known suffix of the stack is as follows:
+## DEFAULT COLON comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DEFAULT COLON VOID 
+##
+## Ends in an error in state: 162.
+##
+## default -> DEFAULT COLON . comandos BREAK SEMICOLON [ CLOSE_CURLED_BRACKETS ]
+##
+## The known suffix of the stack is as follows:
+## DEFAULT COLON 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS DEFAULT WHILE 
 ##
 ## Ends in an error in state: 161.
 ##
-## cmd_while -> While AParen expressao FParen AChave comandos . FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## default -> DEFAULT . COLON comandos BREAK SEMICOLON [ CLOSE_CURLED_BRACKETS ]
 ##
 ## The known suffix of the stack is as follows:
-## While AParen expressao FParen AChave comandos 
+## DEFAULT 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE 
+##
+## Ends in an error in state: 78.
+##
+## cmd_switch -> SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS . cases default CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 77.
+##
+## cmd_switch -> SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS . OPEN_CURLED_BRACKETS cases default CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS LITERAL_STRING WHILE 
+##
+## Ends in an error in state: 76.
+##
+## cmd_switch -> SWITCH OPEN_PARENTHESIS expressao . CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cases default CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ OR CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR CLOSE_PARENTHESIS AND ]
+##
+## The known suffix of the stack is as follows:
+## SWITCH OPEN_PARENTHESIS expressao 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 121, spurious reduction of production comandos -> 
-## In state 134, spurious reduction of production comandos -> comando comandos 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave While AParen STRING FParen AChave Virg 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH OPEN_PARENTHESIS WHILE 
+##
+## Ends in an error in state: 75.
+##
+## cmd_switch -> SWITCH OPEN_PARENTHESIS . expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cases default CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## SWITCH OPEN_PARENTHESIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS SWITCH WHILE 
+##
+## Ends in an error in state: 74.
+##
+## cmd_switch -> SWITCH . OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cases default CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## SWITCH 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 18.
+##
+## funcao -> INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS . comandos CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+##
+## The known suffix of the stack is as follows:
+## INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS INTEGER ID BREAK 
+##
+## Ends in an error in state: 170.
+##
+## cmd_while -> WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos . CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 114, spurious reduction of production inicial -> 
+## In state 117, spurious reduction of production cmd_dec -> tipo ID inicial 
+## In state 136, spurious reduction of production comando -> cmd_dec 
+## In state 125, spurious reduction of production comandos -> 
+## In state 138, spurious reduction of production comandos -> comando comandos 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS VOID 
+##
+## Ends in an error in state: 73.
+##
+## cmd_while -> WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS . comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+##
+## The known suffix of the stack is as follows:
+## WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE OPEN_PARENTHESIS LITERAL_STRING CLOSE_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 72.
 ##
-## cmd_while -> While AParen expressao FParen AChave . comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_while -> WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS . OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## While AParen expressao FParen AChave 
+## WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave While AParen STRING FParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE OPEN_PARENTHESIS LITERAL_STRING WHILE 
 ##
 ## Ends in an error in state: 71.
 ##
-## cmd_while -> While AParen expressao FParen . AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_while -> WHILE OPEN_PARENTHESIS expressao . CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
+## expressao -> expressao . AND expr10 [ OR CLOSE_PARENTHESIS AND ]
+## expressao -> expressao . OR expr10 [ OR CLOSE_PARENTHESIS AND ]
 ##
 ## The known suffix of the stack is as follows:
-## While AParen expressao FParen 
-##
-
-<YOUR SYNTAX ERROR MESSAGE HERE>
-
-programa: TInt Main AParen FParen AChave While AParen STRING While 
-##
-## Ends in an error in state: 70.
-##
-## cmd_while -> While AParen expressao . FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
-## expressao -> expressao . And expr10 [ Or FParen And ]
-## expressao -> expressao . Or expr10 [ Or FParen And ]
-##
-## The known suffix of the stack is as follows:
-## While AParen expressao 
+## WHILE OPEN_PARENTHESIS expressao 
 ##
 ## WARNING: This example involves spurious reductions.
 ## This implies that, although the LR(1) items shown above provide an
 ## accurate view of the past (what has been recognized so far), they
 ## may provide an INCOMPLETE view of the future (what was expected next).
-## In state 34, spurious reduction of production expr30 -> expr40 
-## In state 40, spurious reduction of production expr20 -> expr30 
-## In state 45, spurious reduction of production expr10 -> expr20 
-## In state 62, spurious reduction of production expressao -> expr10 
+## In state 37, spurious reduction of production expr30 -> expr40 
+## In state 43, spurious reduction of production expr20 -> expr30 
+## In state 48, spurious reduction of production expr10 -> expr20 
+## In state 64, spurious reduction of production expressao -> expr10 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave While AParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE OPEN_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 20.
 ##
-## cmd_while -> While AParen . expressao FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_while -> WHILE OPEN_PARENTHESIS . expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## While AParen 
+## WHILE OPEN_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen AChave While While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS WHILE WHILE 
 ##
 ## Ends in an error in state: 19.
 ##
-## cmd_while -> While . AParen expressao FParen AChave comandos FChave [ While TInt TFloat TChar TBool Switch Scanf Return Printf PTVirg If Ident GetChar For FParen FChave Break ]
+## cmd_while -> WHILE . OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ WHILE SWITCH SEMICOLON SCANF RETURN PRINTF INTEGER IF ID FOR FLOAT DO CLOSE_PARENTHESIS CLOSE_CURLED_BRACKETS CHAR BREAK BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## While 
+## WHILE 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen FParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS CLOSE_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 17.
 ##
-## funcao -> TInt Main AParen argumentos FParen . AChave comandos FChave [ TInt TFloat TChar TBool EOF ]
+## funcao -> INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS . OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## TInt Main AParen argumentos FParen 
+## INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen TInt Ident Virg While 
+programa: INTEGER MAIN OPEN_PARENTHESIS INTEGER ID COMA WHILE 
 ##
 ## Ends in an error in state: 14.
 ##
-## seq -> seq Virg . argumento [ Virg FParen ]
+## seq -> seq COMA . argumento [ COMA CLOSE_PARENTHESIS ]
 ##
 ## The known suffix of the stack is as follows:
-## seq Virg 
+## seq COMA 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen TInt Ident While 
+programa: INTEGER MAIN OPEN_PARENTHESIS INTEGER ID WHILE 
 ##
 ## Ends in an error in state: 13.
 ##
-## argumentos -> seq . [ FParen ]
-## seq -> seq . Virg argumento [ Virg FParen ]
+## argumentos -> seq . [ CLOSE_PARENTHESIS ]
+## seq -> seq . COMA argumento [ COMA CLOSE_PARENTHESIS ]
 ##
 ## The known suffix of the stack is as follows:
 ## seq 
@@ -1486,11 +1655,11 @@ programa: TInt Main AParen TInt Ident While
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen TInt While 
+programa: INTEGER MAIN OPEN_PARENTHESIS INTEGER WHILE 
 ##
 ## Ends in an error in state: 11.
 ##
-## argumento -> tipo . Ident [ Virg FParen ]
+## argumento -> tipo . ID [ COMA CLOSE_PARENTHESIS ]
 ##
 ## The known suffix of the stack is as follows:
 ## tipo 
@@ -1498,44 +1667,44 @@ programa: TInt Main AParen TInt While
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main AParen While 
+programa: INTEGER MAIN OPEN_PARENTHESIS WHILE 
 ##
 ## Ends in an error in state: 6.
 ##
-## funcao -> TInt Main AParen . argumentos FParen AChave comandos FChave [ TInt TFloat TChar TBool EOF ]
+## funcao -> INTEGER MAIN OPEN_PARENTHESIS . argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## TInt Main AParen 
+## INTEGER MAIN OPEN_PARENTHESIS 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt Main While 
+programa: INTEGER MAIN WHILE 
 ##
 ## Ends in an error in state: 5.
 ##
-## funcao -> TInt Main . AParen argumentos FParen AChave comandos FChave [ TInt TFloat TChar TBool EOF ]
+## funcao -> INTEGER MAIN . OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
 ##
 ## The known suffix of the stack is as follows:
-## TInt Main 
+## INTEGER MAIN 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: TInt While 
+programa: INTEGER WHILE 
 ##
 ## Ends in an error in state: 4.
 ##
-## funcao -> TInt . Main AParen argumentos FParen AChave comandos FChave [ TInt TFloat TChar TBool EOF ]
-## tipo -> TInt . [ Ident ]
+## funcao -> INTEGER . MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS [ INTEGER FLOAT EOF CHAR BOOL ]
+## tipo -> INTEGER . [ ID ]
 ##
 ## The known suffix of the stack is as follows:
-## TInt 
+## INTEGER 
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
-programa: While 
+programa: WHILE 
 ##
 ## Ends in an error in state: 0.
 ##

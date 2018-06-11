@@ -1,0 +1,2 @@
+sintatico.ml: Lexing Sintatico_arvore
+sintatico.mli: Lexing MenhirLib Sintatico_arvore

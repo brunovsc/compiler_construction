@@ -31,15 +31,16 @@ let estado checkpoint : int =
 
 let sucesso v = Some v
 
-let falha lexbuf (checkpoint : Ast.programa I.checkpoint) =
+let falha lexbuf (checkpoint : Sintatico_arvore.programa I.checkpoint) =
   let estado_atual = estado checkpoint in
   let msg = message estado_atual in
   raise (Erro_Sintatico (Printf.sprintf "%d - %s.\n"
                                       (Lexing.lexeme_start lexbuf) msg))
 
 let loop lexbuf resultado =
-  let fornecedor = I.lexer_lexbuf_to_supplier Lexico.token lexbuf in
+let fornecedor = I.lexer_lexbuf_to_supplier Lexico.token lexbuf in
   I.loop_handle sucesso (falha lexbuf) fornecedor resultado
+
 
 
 let parse_com_erro lexbuf =
@@ -61,15 +62,13 @@ let parse s =
 let parse_arq nome =
   let ic = open_in nome in
   let lexbuf = Lexing.from_channel ic in
-  let result = parse_com_erro lexbuf in
+  let ast = parse_com_erro lexbuf in
   let _ = close_in ic in
-  match result with
-  | Some ast -> ast
-  | None -> failwith "A analise sintatica falhou"
+  ast
 
 
 (* Para compilar:
      menhir -v --list-errors sintatico.mly > sintatico.msg
-     menhir -v sintatico.mly --compile-errors sintatico.msg > erroSint.ml
-     ocamlbuild -use-ocamlfind -use-menhir -menhir "menhir --table" -package menhirLib sintaticoTest.byte
+     menhir -v --list-errors sintatico.mly --compile-errors sintatico.msg > erroSint.ml
+     ocamlbuild -use-menhir sintaticoTest.byte
  *)

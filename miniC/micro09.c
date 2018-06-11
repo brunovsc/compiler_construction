@@ -1,8 +1,10 @@
 #include <stdio.h>
 
 int main(){
-	float preco, venda, novo_preco;
-	printf("Digite o preço: ");
+        float preco;
+	float venda;
+	float novo_preco;
+        printf("Digite o preço: ");
 	scanf("%f", &preco);
 	printf("Digite a venda: ");
 	scanf("%f", &venda);

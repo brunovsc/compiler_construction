@@ -1,7 +1,34 @@
 ### Starting build.
 # Target: sintatico_teste.ml.depends, tags: { extension:ml, file:sintatico_teste.ml, ocaml, ocamldep, package(menhirLib), quiet }
-ocamlfind ocamldep -package menhirLib -modules sintatico_teste.ml > sintatico_teste.ml.depends
-+ ocamlfind ocamldep -package menhirLib -modules sintatico_teste.ml > sintatico_teste.ml.depends
-ocamlfind: Package `menhirLib' not found
-Command exited with code 2.
-# Compilation unsuccessful.
+ocamlfind ocamldep -package menhirLib -modules sintatico_teste.ml > sintatico_teste.ml.depends # cached
+# Target: lexico.mll, tags: { extension:mll, file:lexico.mll, lexer, ocaml, ocamllex, package(menhirLib), quiet }
+/usr/bin/ocamllex.opt -q lexico.mll # cached
+# Target: lexico.ml.depends, tags: { extension:ml, file:lexico.ml, ocaml, ocamldep, package(menhirLib), quiet }
+ocamlfind ocamldep -package menhirLib -modules lexico.ml > lexico.ml.depends # cached
+# Target: sintatico.mly.depends, tags: { extension:mly, file:sintatico.mly, infer, menhir_ocamldep, ocaml, ocamldep, package(menhirLib), quiet }
+menhir --table --raw-depend --ocamldep 'ocamlfind ocamldep -modules' sintatico.mly > sintatico.mly.depends # cached
+# Target: sintatico_arvore.ml.depends, tags: { extension:ml, file:sintatico_arvore.ml, ocaml, ocamldep, package(menhirLib), quiet }
+ocamlfind ocamldep -package menhirLib -modules sintatico_arvore.ml > sintatico_arvore.ml.depends # cached
+# Target: sintatico_arvore.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:sintatico_arvore.cmo, file:sintatico_arvore.ml, implem, ocaml, package(menhirLib), quiet }
+ocamlfind ocamlc -c -package menhirLib -o sintatico_arvore.cmo sintatico_arvore.ml # cached
+# Target: sintatico.mly, tags: { byte, compile, extension:ml, extension:mly, file:sintatico.ml, file:sintatico.mly, infer, menhir, ocaml, package(menhirLib), parser, quiet }
+menhir --table --ocamlc 'ocamlfind ocamlc -package menhirLib' --infer sintatico.mly # cached
+# Target: sintatico.mli.depends, tags: { extension:mli, file:sintatico.mli, ocaml, ocamldep, package(menhirLib), quiet }
+ocamlfind ocamldep -package menhirLib -modules sintatico.mli > sintatico.mli.depends # cached
+# Target: sintatico.cmi, tags: { byte, compile, extension:mli, file:sintatico.mli, interf, ocaml, package(menhirLib), quiet }
+ocamlfind ocamlc -c -package menhirLib -o sintatico.cmi sintatico.mli # cached
+# Target: lexico.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:lexico.cmo, file:lexico.ml, implem, ocaml, package(menhirLib), quiet }
+ocamlfind ocamlc -c -package menhirLib -o lexico.cmo lexico.ml # cached
+# Target: sintatico_erros.ml.depends, tags: { extension:ml, file:sintatico_erros.ml, ocaml, ocamldep, package(menhirLib), quiet }
+ocamlfind ocamldep -package menhirLib -modules sintatico_erros.ml > sintatico_erros.ml.depends
+# Target: sintatico_erros.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:sintatico_erros.cmo, file:sintatico_erros.ml, implem, ocaml, package(menhirLib), quiet }
+ocamlfind ocamlc -c -package menhirLib -o sintatico_erros.cmo sintatico_erros.ml
+# Target: sintatico_teste.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:sintatico_teste.cmo, file:sintatico_teste.ml, implem, ocaml, package(menhirLib), quiet }
+ocamlfind ocamlc -c -package menhirLib -o sintatico_teste.cmo sintatico_teste.ml # cached
+# Target: sintatico.ml.depends, tags: { extension:ml, file:sintatico.ml, ocaml, ocamldep, package(menhirLib), quiet }
+ocamlfind ocamldep -package menhirLib -modules sintatico.ml > sintatico.ml.depends # cached
+# Target: sintatico.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:sintatico.cmo, file:sintatico.ml, implem, ocaml, package(menhirLib), quiet }
+ocamlfind ocamlc -c -package menhirLib -o sintatico.cmo sintatico.ml # cached
+# Target: sintatico_teste.byte, tags: { byte, dont_link_with, extension:byte, file:sintatico_teste.byte, link, ocaml, package(menhirLib), program, quiet }
+ocamlfind ocamlc -linkpkg -package menhirLib sintatico_arvore.cmo sintatico.cmo lexico.cmo sintatico_erros.cmo sintatico_teste.cmo -o sintatico_teste.byte
+# Compilation successful.
