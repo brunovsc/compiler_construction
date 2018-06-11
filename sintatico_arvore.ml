@@ -18,6 +18,7 @@ and comando = CmdAtrib  of expressao * expressao
             | CmdSwitch of expressao * cases * default option
             | CmdGetC   of string
             | CmdIncr   of expressao
+            | CmdReturn of expressao
 
 and expressao = ExpInt     of int
               | ExpVar     of string
@@ -33,15 +34,17 @@ and expr = { valor: expressao;
              mutable tipoexp: tipo option
             }
 
-and operador = ADDITION | SUBTRACTION | MULTIPLICATION | DIVISION
-             | MORE_THAN | LESS_THAN | MORE_EQUAL_THAN | LESS_EQUAL_THAN
-             | EQUALS | DIFFERENT | OR | AND | NOT
+and operador = Add | Sub | Mul | Div
+             | More_Than | Less_Than | More_Equal_Than | Less_Equal_Than
+             | Eq | Dif | Or | And | Not
 
 and tipo = TINTEGER | TFLOAT | TCHAR | TBOOL | TSTRING
 
 and cases = case list
 and case = CASE of expressao * comandos
 and default = DEFAULT of comandos
+
+and variavel = VarSimples of string
 
 type tvalor = VInt of int | VFloat of float | VBool of bool | VString of string
             | VChar of char

@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int main(){
-	int n, m, x;
+	int n;
+	int m
+	int x;
 	n = 1;
 	m = 2;
 	x = 5;

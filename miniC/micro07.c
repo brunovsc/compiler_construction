@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-	int programa, numero;
+	int programa;
+	int numero;
 	char opc;
 	programa = 1;
 	while(programa == 1){

@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-	int n, m;
+	int n;
+	int m;
 	n = 1;
 	m = 2;
 	if(n == m){

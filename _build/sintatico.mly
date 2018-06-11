@@ -49,15 +49,13 @@ includes: /* nada */  { None }
 funcoes: /* nada */ { [] }
        | funcao funcoes { $1 :: $2 };
 
-funcao: INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS
-	{ Funcao(TINTEGER, ExpVar "main", [], $7, ExpInt 1)}
-	| tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos
-	RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS { Funcao($1, ExpVar $2, $4, $7, $9)}
+funcao: INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Funcao(TINTEGER, ExpVar "main", [], $7, ExpInt 1) }
+	  | tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos RETURN expressao SEMICOLON CLOSE_CURLED_BRACKETS { Funcao($1, ExpVar $2, $4, $7, $9) }
 
-tipo: INTEGER   { TINTEGER }
-    | FLOAT { TFLOAT }
-    | CHAR  { TCHAR  }
-    | BOOL  { TBOOL  }
+tipo: INTEGER { TINTEGER }
+    | FLOAT   { TFLOAT }
+    | CHAR    { TCHAR  }
+    | BOOL    { TBOOL  }
     ;
 
 argumentos: /* nada */ { [] }
@@ -82,6 +80,7 @@ comando: cmd_atrib   { $1 }
        | cmd_if      { $1 }
        | cmd_switch  { $1 }
        | cmd_incr    { $1 }
+       | cmd_return  { $1 }
        ;
 
 cmd_atrib: id=ID ATTRIBUTION exp=expressao { CmdAtrib (ExpVar id, exp) };
@@ -107,7 +106,7 @@ cmd_if: IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS com
 cmd_incr: ID INCREMENT { CmdIncr(ExpVar $1) }
 
 elsee: /* nada */ { None }
-     | ELSE OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Some($3) };
+     | ELSE OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Some($3) }
      | ELSE cmd_if { Some([$2]) };
      ;
 
@@ -121,8 +120,11 @@ case: CASE expressao COLON comandos BREAK SEMICOLON { CASE($2, $4) }
     | CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos BREAK SEMICOLON { CASE($3, $6) }
     ;
 
-default: DEFAULT COLON comandos BREAK SEMICOLON { DEFAULT($3) }
+default: DEFAULT COLON comandos { DEFAULT($3) }
        ;
+
+cmd_return:
+          | RETURN exp=expressao { CmdReturn(exp) }
 
 args: /* nada */ { [] }
     | seqs { $1 }
@@ -133,46 +135,36 @@ seqs: expressao { [$1] }
     ;
 
 expressao: 
-         | ID { ExpVar $1 }
-         | expressao AND expr10 { ExpBin(AND, $1, $3) }
-         | expressao OR  expr10 { ExpBin(OR,  $1, $3) }
-         | expr10 { $1 }
+         | id=ID             { ExpVar     id }
+         | i=LITERAL_INTEGER { ExpInt      i }
+         | f=LITERAL_FLOAT   { ExpFloat    f }
+         | c=LITERAL_CHAR    { ExpChar     c }
+         | s=LITERAL_STRING  { ExpString   s }
+         | b=LITERAL_BOOL    { ExpBool     b }
+         | NOT e=expressao   { ExpUn(Not, e) }
+         | le=expressao op=oper re=expressao { ExpBin (op, le, re) }
+         | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
+         | chama_func { $1 }
          ;
 
-expr10: expr10 EQUALS expr20 { ExpBin(EQUALS, $1, $3) }
-      | expr10 DIFFERENT  expr20 { ExpBin(DIFFERENT,  $1, $3) }
-      | expr20 { $1 }
-      ;
+variavel:
+        | id=ID { VarSimples id }
+        ;
 
-expr20: expr20 MORE_THAN  expr30 { ExpBin(MORE_THAN,  $1, $3) }
-      | expr20 LESS_THAN  expr30 { ExpBin(LESS_THAN,  $1, $3) }
-      | expr20 MORE_EQUAL_THAN expr30 { ExpBin(MORE_EQUAL_THAN, $1, $3) }
-      | expr20 LESS_EQUAL_THAN expr30 { ExpBin(LESS_EQUAL_THAN, $1, $3) }
-      | expr30 { $1 }
-      ;
+%inline oper:
+            | OR { Or }
+            | AND { And }
+            | ADDITION { Add }
+            | SUBTRACTION { Sub }
+            | MULTIPLICATION { Mul }
+            | DIVISION { Div }
+            | MORE_THAN { More_Than }
+            | LESS_THAN { Less_Than }
+            | MORE_EQUAL_THAN { More_Equal_Than }
+            | LESS_EQUAL_THAN { Less_Equal_Than }
+            | EQUALS { Eq }
+            | DIFFERENT { Dif }
 
-expr30: expr30 ADDITION expr40 { ExpBin(ADDITION, $1, $3) }
-      | expr30 SUBTRACTION  expr40 { ExpBin(SUBTRACTION,  $1, $3) }
-      | expr40 { $1 }
-      ;
-
-expr40: expr40 MULTIPLICATION expr50 { ExpBin(MULTIPLICATION, $1, $3) }
-      | expr40 DIVISION expr50 { ExpBin(DIVISION, $1, $3) }
-      | expr50 { $1 }
-      ;
-
-expr50: NOT expr50 { ExpUn(NOT, $2) }
-      | expr60 { $1 }
-      ;
-
-expr60: LITERAL_INTEGER { ExpInt    $1 }
-      | LITERAL_FLOAT   { ExpFloat  $1 }
-      | LITERAL_CHAR    { ExpChar   $1 }
-      | LITERAL_STRING  { ExpString $1 }
-      | LITERAL_BOOL { ExpBool $1 }
-      | OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS { $2 }
-      | chama_func { $1 }
-      ;
 
 chama_func: ID OPEN_PARENTHESIS args CLOSE_PARENTHESIS { ChamaFunc(ExpVar $1, $3) };
 

@@ -26,7 +26,7 @@
 
 # 28 "lexico.ml"
 let __ocaml_lex_tables = {
-  Lexing.lex_base = 
+  Lexing.lex_base =
    "\000\000\191\255\192\255\078\000\160\000\153\000\165\000\218\000\
     \031\000\037\001\112\001\187\001\006\002\081\002\156\002\231\002\
     \050\003\125\003\200\003\019\004\094\004\169\004\244\004\013\000\
@@ -49,7 +49,7 @@ let __ocaml_lex_tables = {
     \252\255\253\255\002\000\181\000\177\000\255\255\254\255\038\027\
     \248\255\249\255\250\255\004\000\219\026\255\255\251\255\252\255\
     \253\255\254\255";
-  Lexing.lex_backtrk = 
+  Lexing.lex_backtrk =
    "\255\255\255\255\255\255\062\000\063\000\063\000\059\000\057\000\
     \063\000\062\000\062\000\062\000\062\000\062\000\062\000\062\000\
     \062\000\062\000\062\000\062\000\062\000\062\000\062\000\063\000\
@@ -72,7 +72,7 @@ let __ocaml_lex_tables = {
     \255\255\255\255\002\000\003\000\003\000\255\255\255\255\255\255\
     \255\255\255\255\255\255\005\000\006\000\255\255\255\255\255\255\
     \255\255\255\255";
-  Lexing.lex_default = 
+  Lexing.lex_default =
    "\002\000\000\000\000\000\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
@@ -95,7 +95,7 @@ let __ocaml_lex_tables = {
     \000\000\000\000\255\255\255\255\255\255\000\000\000\000\161\000\
     \000\000\000\000\000\000\255\255\255\255\000\000\000\000\000\000\
     \000\000\000\000";
-  Lexing.lex_trans = 
+  Lexing.lex_trans =
    "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\045\000\043\000\043\000\153\000\044\000\162\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -997,7 +997,7 @@ let __ocaml_lex_tables = {
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\160\000";
-  Lexing.lex_check = 
+  Lexing.lex_check =
    "\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\000\000\000\000\044\000\154\000\000\000\163\000\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
@@ -1899,22 +1899,22 @@ let __ocaml_lex_tables = {
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\159\000";
-  Lexing.lex_base_code = 
+  Lexing.lex_base_code =
    "";
-  Lexing.lex_backtrk_code = 
+  Lexing.lex_backtrk_code =
    "";
-  Lexing.lex_default_code = 
+  Lexing.lex_default_code =
    "";
-  Lexing.lex_trans_code = 
+  Lexing.lex_trans_code =
    "";
-  Lexing.lex_check_code = 
+  Lexing.lex_check_code =
    "";
-  Lexing.lex_code = 
+  Lexing.lex_code =
    "";
 }
 
 let rec token lexbuf =
-    __ocaml_lex_token_rec lexbuf 0
+   __ocaml_lex_token_rec lexbuf 0
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -2283,11 +2283,11 @@ let
              ( EOF )
 # 2285 "lexico.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
       __ocaml_lex_token_rec lexbuf __ocaml_lex_state
 
 and comentario_bloco n lexbuf =
-    __ocaml_lex_comentario_bloco_rec n lexbuf 150
+   __ocaml_lex_comentario_bloco_rec n lexbuf 150
 and __ocaml_lex_comentario_bloco_rec n lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -2316,11 +2316,11 @@ and __ocaml_lex_comentario_bloco_rec n lexbuf __ocaml_lex_state =
              ( failwith "Comentário não fechado" )
 # 2318 "lexico.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
       __ocaml_lex_comentario_bloco_rec n lexbuf __ocaml_lex_state
 
 and leia_string lin col buffer lexbuf =
-    __ocaml_lex_leia_string_rec lin col buffer lexbuf 159
+   __ocaml_lex_leia_string_rec lin col buffer lexbuf 159
 and __ocaml_lex_leia_string_rec lin col buffer lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -2368,7 +2368,7 @@ let
             ( erro lin col "A string não foi fechada")
 # 2370 "lexico.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
       __ocaml_lex_leia_string_rec lin col buffer lexbuf __ocaml_lex_state
 
 ;;

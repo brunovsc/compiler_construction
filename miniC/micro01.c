@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-	float cel, far;
+	float cel;
+	float far;
 	printf(" Tabela de conversão: Celsius -> Fahrenheit\n");
 	printf("Digite a temperatura em Celsius: ");
 	scanf("%f", &cel);

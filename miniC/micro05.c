@@ -4,7 +4,9 @@ int main(){
 	char nome[15];
 	char sexo;
 	char newLine;
-	int x, h, m;
+	int x;
+	int h;
+	int m;
 	// a inicialização das variáveis h e m não estava presente no algoritmo em Portugol
 	h = 0;
 	m = 0;

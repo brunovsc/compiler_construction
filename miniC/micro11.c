@@ -1,23 +1,5 @@
 #include <stdio.h>
 
-int verifica(int n);
-
-int main(){
-	int numero, x;
-	printf("Digite um número: ");
-	scanf("%d", &numero);
-	x = verifica(numero);
-	if(x == 1){
-		printf("Número positivo\n");
-	} else {
-		if(x == 0){
-			printf("Zero\n");
-		} else {
-			printf("Número negativo\n");
-		}
-	}
-}
-
 int verifica(int n){
 	int res;
 	if(n > 0){
@@ -30,4 +12,21 @@ int verifica(int n){
 		}
 	}
 	return res;
+}
+
+int main(){
+	int numero;
+	int x;
+	printf("Digite um número: ");
+	scanf("%d", &numero);
+	x = verifica(numero);
+	if(x == 1){
+		printf("Número positivo\n");
+	} else {
+		if(x == 0){
+			printf("Zero\n");
+		} else {
+			printf("Número negativo\n");
+		}
+	}
 }

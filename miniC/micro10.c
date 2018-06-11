@@ -1,9 +1,16 @@
 #include <stdio.h>
 
-int fatorial(int n);
+int fatorial(int n){
+	if(n <= 0){
+		return 1;
+	} else {
+		return n * fatorial(n-1);
+	}
+}
 
 int main(){
-	int numero, fat;
+	int numero,
+	int fat;
 	printf("Digite um número: ");
 	scanf("%d", &numero);
 	fat = fatorial(numero);
@@ -11,12 +18,4 @@ int main(){
 	printf("%d", numero);
 	printf(" é ");
 	printf("%d\n", fat);
-}
-
-int fatorial(int n){
-	if(n <= 0){
-		return 1;
-	} else {
-		return n * fatorial(n-1);
-	}
 }
