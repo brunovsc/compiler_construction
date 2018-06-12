@@ -116,7 +116,9 @@ comando: cmd_atrib   { $1 }
 
 cmd_atrib: id=ID ATTRIBUTION exp=expressao SEMICOLON { CmdAtrib (ExpVar id, exp) };
 
-cmd_dec: tipo ID inicial SEMICOLON { CmdDec(ExpVar $2, $1, $3) }
+cmd_dec: 
+       | tipo ID inicial SEMICOLON { CmdDec(ExpVar $2, $1, $3) }
+       | t=tipo id=ID OPEN_BRACKETS LITERAL_INTEGER CLOSE_BRACKETS SEMICOLON { CmdDec(ExpVar id, t, None) }
        ;
 
 inicial: 
@@ -130,15 +132,15 @@ cmd_scanf: SCANF OPEN_PARENTHESIS expressao COMA ADDRESS ID CLOSE_PARENTHESIS SE
 
 cmd_while: WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { CmdWhile($3, $6) };
 
-cmd_for: FOR OPEN_PARENTHESIS cmd_atrib SEMICOLON expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { CmdFor($3, $5, $7, $10) };
+cmd_for: FOR OPEN_PARENTHESIS cmd_atrib expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { CmdFor($3, $4, $6, $9) };
 
 cmd_do: DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON { CmdDo($3, $7) };
 
 cmd_if: IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS elsee { CmdIf($3, $6, $8) };
 
-cmd_incr: ID INCREMENT SEMICOLON { CmdIncr(ExpVar $1) };
+cmd_incr: ID INCREMENT { CmdIncr(ExpVar $1) };
 
-cmd_decr: ID DECREMENT SEMICOLON { CmdDecr(ExpVar $1) };
+cmd_decr: ID DECREMENT { CmdDecr(ExpVar $1) };
 
 elsee: /* nada */ { None }
      | ELSE OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Some($3) }
@@ -178,7 +180,6 @@ expressao:
          | NOT e=expressao   { ExpUn(Not, e) }
          | le=expressao op=oper re=expressao { ExpBin (op, le, re) }
          | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
-         | tipo id=ID OPEN_BRACKETS expressao CLOSE_BRACKETS { ExpVar id }
          | chama_func { $1 }
          ;
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-	char nome[15];
+char nome[15];
 	char sexo;
 	char newLine;
 	int x;
@@ -12,7 +12,7 @@ int main(){
 	m = 0;
 	for(x = 1; x <= 5; x++){
 		printf("Digite o nome: ");
-		scanf("%s", nome);
+		scanf("%s", &nome);
 		scanf("%c", &newLine);
 		printf("H - Homem ou M - Mulher: ");
 		scanf("%c", &sexo);

@@ -25,8 +25,8 @@
 }
 
 let digito = ['0' - '9']
-let inteiro = digito+
-let numero = (digito* '.' digito+) | (digito+ '.' digito+)
+let inteiro = (digito+)
+let numero = ((digito* '.' digito+) | (digito+ '.' digito+))
 
 let letra = ['a' - 'z' 'A' - 'Z']
 let identificador = letra ( letra | digito | '_')*

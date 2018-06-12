@@ -3,12 +3,12 @@
 int verifica(int n){
 	int res;
 	if(n > 0){
-		res = 1;
+		res = 2;
 	} else {
 		if(n < 0){
-			res = -1;
-		} else {
 			res = 0;
+		} else {
+			res = 1;
 		}
 	}
 	return res;
@@ -20,13 +20,15 @@ int main(){
 	printf("Digite um número: ");
 	scanf("%d", &numero);
 	x = verifica(numero);
-	if(x == 1){
+	if(x == 2){
 		printf("Número positivo\n");
 	} else {
-		if(x == 0){
+		if(x == 1){
 			printf("Zero\n");
 		} else {
-			printf("Número negativo\n");
+			if(x == 0){
+				printf("Número negativo\n");
+			}
 		}
 	}
 }

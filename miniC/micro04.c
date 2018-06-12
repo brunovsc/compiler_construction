@@ -5,7 +5,7 @@ int main(){
 	int num;
 	int intervalo;
 	intervalo = 0; // a inicialização da variável intervalo não estava presente no algoritmo em Portugol
-	for(x = 1; x <= 5; x++){
+for(x = 1; x <= 5; x++){
 		printf("Digite um número: ");
 		scanf("%d", &num);
 		if(num >= 10){
