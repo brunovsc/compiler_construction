@@ -20,9 +20,9 @@ ocamlfind ocamlc -c -package menhirLib -o sintatico.cmi sintatico.mli # cached
 # Target: lexico.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:lexico.cmo, file:lexico.ml, implem, ocaml, quiet }
 ocamlfind ocamlc -c -package menhirLib -o lexico.cmo lexico.ml # cached
 # Target: sintatico_erros.ml.depends, tags: { package(menhirLib), extension:ml, file:sintatico_erros.ml, ocaml, ocamldep, quiet }
-ocamlfind ocamldep -package menhirLib -modules sintatico_erros.ml > sintatico_erros.ml.depends
+ocamlfind ocamldep -package menhirLib -modules sintatico_erros.ml > sintatico_erros.ml.depends # cached
 # Target: sintatico_erros.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:sintatico_erros.cmo, file:sintatico_erros.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o sintatico_erros.cmo sintatico_erros.ml
+ocamlfind ocamlc -c -package menhirLib -o sintatico_erros.cmo sintatico_erros.ml # cached
 # Target: sintatico_teste.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:sintatico_teste.cmo, file:sintatico_teste.ml, implem, ocaml, quiet }
 ocamlfind ocamlc -c -package menhirLib -o sintatico_teste.cmo sintatico_teste.ml # cached
 # Target: sintatico.ml.depends, tags: { package(menhirLib), extension:ml, file:sintatico.ml, ocaml, ocamldep, quiet }
@@ -30,5 +30,5 @@ ocamlfind ocamldep -package menhirLib -modules sintatico.ml > sintatico.ml.depen
 # Target: sintatico.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:sintatico.cmo, file:sintatico.ml, implem, ocaml, quiet }
 ocamlfind ocamlc -c -package menhirLib -o sintatico.cmo sintatico.ml # cached
 # Target: sintatico_teste.byte, tags: { package(menhirLib), byte, dont_link_with, extension:byte, file:sintatico_teste.byte, link, ocaml, program, quiet }
-ocamlfind ocamlc -linkpkg -package menhirLib sintatico_arvore.cmo sintatico.cmo lexico.cmo sintatico_erros.cmo sintatico_teste.cmo -o sintatico_teste.byte
+ocamlfind ocamlc -linkpkg -package menhirLib sintatico_arvore.cmo sintatico.cmo lexico.cmo sintatico_erros.cmo sintatico_teste.cmo -o sintatico_teste.byte # cached
 # Compilation successful.
