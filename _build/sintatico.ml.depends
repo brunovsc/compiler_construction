@@ -1,1 +1,1 @@
-sintatico.ml: MenhirLib Obj Sintatico_arvore
+sintatico.ml: Ast Lexing List MenhirLib Obj Sast

@@ -17,9 +17,9 @@ x++;
 		/*
 			aninhamento 3
 		*/
-	*/
+	
 	// aninhamento de comentario de linha
-*/
+
 	x++;
 	return 0;
 	printf("teste string ");

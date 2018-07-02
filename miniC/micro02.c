@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int main(){
 	int num1;
 	int num2;
@@ -8,8 +6,14 @@ int main(){
 	printf("Digite o segundo número: ");
 	scanf("%d", &num2);
 	if(num1 > num2){
-		printf("O primeiro número %d é maior que o segundo %d", num1, num2);
+		printf("O primeiro número ");
+		printf(num1);
+		printf(" é maior que o segundo ");
+		printf(num2);
 	} else {
-		printf("O segundo número %d é maior que o primeiro %d", num2, num1);
+		printf("O segundo número ");
+		printf(num2);
+		printf(" é maior que o primeiro ");
+		printf(num1);
 	}
 }

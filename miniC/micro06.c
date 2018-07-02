@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int main(){
 	int numero;
 	printf("Digite um número de 1 a 5: ");

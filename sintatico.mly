@@ -1,204 +1,175 @@
-%{
-	open Sintatico_arvore
 
+%{
+open Lexing
+open Ast
+open Sast
 %}
 
-%token <string> ID
-%token <string> LITERAL_STRING
-%token <int> LITERAL_INTEGER
-%token <float> LITERAL_FLOAT
-%token <char> LITERAL_CHAR
-%token <bool> LITERAL_BOOL
-%token INTEGER
-%token FLOAT
-%token CHAR
-%token BOOL
-%token MAIN
-%token ATTRIBUTION
-%token OPEN_PARENTHESIS
-%token CLOSE_PARENTHESIS
-%token OPEN_BRACKETS
-%token CLOSE_BRACKETS
-%token OPEN_CURLED_BRACKETS
-%token CLOSE_CURLED_BRACKETS
-%token ADDITION
-%token SUBTRACTION
-%token MULTIPLICATION
-%token DIVISION
-%token COMA
-%token SEMICOLON
-%token COLON
-%token SINGLE_QUOTE
-%token MORE_THAN
-%token LESS_THAN
-%token NOT
-%token ADDRESS
-%token EQUALS
-%token MORE_EQUAL_THAN
-%token LESS_EQUAL_THAN
-%token DIFFERENT
-%token INCREMENT
-%token DECREMENT
-%token OR
-%token AND
-%token MODULE
-%token IF
-%token ELSE
-%token WHILE
-%token FOR
-%token DO
-%token SWITCH
-%token CASE
-%token BREAK
-%token DEFAULT
-%token RETURN
-%token <string> HEADER_FILE
+%token <int * Lexing.position> LITERAL_INTEGER
+%token <float * Lexing.position> LITERAL_FLOAT
+%token <string * Lexing.position> ID
+%token <string * Lexing.position> LITERAL_STRING
+%token <char * Lexing.position> LITERAL_CHAR
+%token <bool * Lexing.position> LITERAL_BOOL
+%token <Lexing.position> COMA COLON SEMICOLON
+%token <Lexing.position> OPEN_BRACKETS CLOSE_BRACKETS
+%token <Lexing.position> OPEN_PARENTHESIS CLOSE_PARENTHESIS
+%token <Lexing.position> INTEGER FLOAT BOOL CHAR
+%token <Lexing.position> IF ELSE
+%token <Lexing.position> ATTRIBUTION RETURN
+%token <Lexing.position> ADDITION
+%token <Lexing.position> SUBTRACTION
+%token <Lexing.position> MULTIPLICATION
+%token <Lexing.position> DIVISION
+%token <Lexing.position> LESS_THAN LESS_EQUAL_THAN
+%token <Lexing.position> EQUALS
+%token <Lexing.position> DIFFERENT
+%token <Lexing.position> MORE_THAN MORE_EQUAL_THAN
+%token <Lexing.position> AND
+%token <Lexing.position> OR
+%token <Lexing.position> OPEN_CURLED_BRACKETS
+%token <Lexing.position> CLOSE_CURLED_BRACKETS
+%token <Lexing.position> PRINTF
+%token <Lexing.position> SCANF ARGS_SCAN ARGD_SCAN ARGF_SCAN ADDRESS
+%token <Lexing.position> WHILE
+%token <Lexing.position> FOR
 %token EOF
-%token SCANF PRINTF
 
 %left OR
 %left AND
-%left MORE_THAN LESS_THAN MORE_EQUAL_THAN LESS_EQUAL_THAN EQUALS DIFFERENT
+%left EQUALS DIFFERENT
+%left MORE_THAN LESS_THAN
 %left ADDITION SUBTRACTION
-%left MULTIPLICATION DIVISION MODULE
-%left NOT
+%left MULTIPLICATION DIVISION
 
 
-%start <Sintatico_arvore.programa> programa
+%start <Sast.expressao Ast.programa> programa
 
 %%
 
-programa: includes funcoes EOF{ $2 }
+programa: 
+          fs = declaracao_de_funcao*
+          cs = comando*
+          EOF { Programa (fs, cs) }
 
-includes: /* nada */  { None }
-        | HEADER_FILE { Some(Includes $1) };
 
-funcoes: /* nada */ { [] }
-       | funcao funcoes { $1 :: $2 }
-       ;
+declaracao_de_variavel:
+   t=tipo ids=separated_nonempty_list(COMA, ID) SEMICOLON {
+                   List.map (fun id -> DecVar (id,t)) ids  }
 
-funcao: INTEGER MAIN OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Funcao(TINTEGER, ExpVar "main", [], $7, ExpInt 1) }
-	  | tipo ID OPEN_PARENTHESIS argumentos CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Funcao($1, ExpVar $2, $4, $7, ExpInt 1) }
-	  ;
+declaracao_de_funcao:
+   tret=tipo_simples nome=ID OPEN_PARENTHESIS formais = separated_list(COMA, parametro) CLOSE_PARENTHESIS 
+  OPEN_CURLED_BRACKETS
+  ds = declaracao_de_variavel*
+  cs = comando*
+  CLOSE_CURLED_BRACKETS {
+    DecFun {
+      fn_nome = nome;
+      fn_tiporet = tret ;
+      fn_formais = formais;
+      fn_locais = List.flatten ds;
+      fn_corpo = cs
+    }
+ }
 
-tipo: INTEGER { TINTEGER }
-    | FLOAT   { TFLOAT }
-    | CHAR    { TCHAR  }
-    | BOOL    { TBOOL  }
-    ;
+parametro: t=tipo nome=ID { (nome, t) }
 
-argumentos: /* nada */ { [] }
-	      | seq { $1 }
+tipo: t=tipo_simples  { t }
 
-seq: argumento { [$1] }
-   | seq COMA argumento { $1 @ [$3] }
 
-argumento: tipo ID { CmdDec(ExpVar $2, $1, None) }
+tipo_simples: INTEGER  { TipoInt    }
+            | FLOAT     { TipoFloat }
+            | CHAR     { TipoChar }
+            | BOOL { TipoBool   }
 
-comandos: /* nada */             { [] }
-	| comando SEMICOLON comandos { $1 :: $3 }
-	| comando comandos           { $1 :: $2 }
-	;
 
-comando: cmd_atrib   { $1 }
-       | cmd_dec     { $1 }
-       | cmd_printf  { $1 }
-       | cmd_scanf   { $1 }
-       | cmd_for     { $1 }
-       | cmd_do      { $1 }
-       | cmd_while   { $1 }
-       | cmd_if      { $1 }
-       | cmd_switch  { $1 }
-       | cmd_incr    { $1 }
-       | cmd_decr    { $1 }
-       | cmd_return  { $1 }
-       ;
+comando: c=comando_atribuicao { c }
+       | c=comando_se         { c }
+       | c=comando_chamada    { c }
+       | c=comando_retorno    { c }
+       | c=comando_print      { c }
+       | c=comando_scanInt    { c }
+       | c=comando_scanFloat  { c }
+       | c=comando_scanString { c }
+       | c=comando_while      { c }
+       | c=comando_for        { c }
 
-cmd_atrib: id=ID ATTRIBUTION exp=expressao SEMICOLON { CmdAtrib (ExpVar id, exp) };
+comando_atribuicao: esq=expressao ATTRIBUTION dir=expressao SEMICOLON {
+      CmdAtrib (esq,dir)
+}
 
-cmd_dec: 
-       | tipo ID inicial SEMICOLON { CmdDec(ExpVar $2, $1, $3) }
-       | t=tipo id=ID OPEN_BRACKETS LITERAL_INTEGER CLOSE_BRACKETS SEMICOLON { CmdDec(ExpVar id, t, None) }
-       ;
+comando_se: IF OPEN_PARENTHESIS teste=expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS
+               entao=comando+
+               CLOSE_CURLED_BRACKETS
+               senao=option(ELSE OPEN_CURLED_BRACKETS cs=comando+ CLOSE_CURLED_BRACKETS {cs})
+             {
+              CmdSe (teste, entao, senao)
+            }
 
-inicial: 
-       | { None }
-       | ATTRIBUTION expressao { Some($2) }
-       ;
+comando_chamada: exp=chamada SEMICOLON { CmdChamada exp }
 
-cmd_printf: PRINTF OPEN_PARENTHESIS args CLOSE_PARENTHESIS SEMICOLON { CmdPrintf($3) };
+comando_retorno: RETURN e=expressao? SEMICOLON { CmdRetorno e}
 
-cmd_scanf: SCANF OPEN_PARENTHESIS expressao COMA ADDRESS ID CLOSE_PARENTHESIS SEMICOLON { CmdScanf($3, ExpVar $6) };
+comando_print: PRINTF OPEN_PARENTHESIS exp=expressao CLOSE_PARENTHESIS SEMICOLON { CmdPrint exp }
 
-cmd_while: WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { CmdWhile($3, $6) };
+comando_scanInt: SCANF OPEN_PARENTHESIS ARGD_SCAN COMA ADDRESS exp=expressao CLOSE_PARENTHESIS SEMICOLON { CmdScanInt exp }
 
-cmd_for: FOR OPEN_PARENTHESIS cmd_atrib expressao SEMICOLON comando CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { CmdFor($3, $4, $6, $9) };
+comando_scanFloat: SCANF OPEN_PARENTHESIS ARGF_SCAN COMA ADDRESS exp=expressao CLOSE_PARENTHESIS SEMICOLON { CmdScanFloat exp }
 
-cmd_do: DO OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS WHILE OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS SEMICOLON { CmdDo($3, $7) };
+comando_scanString: SCANF OPEN_PARENTHESIS ARGS_SCAN COMA ADDRESS exp=expressao CLOSE_PARENTHESIS SEMICOLON { CmdScanString exp }
 
-cmd_if: IF OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS elsee { CmdIf($3, $6, $8) };
+comando_while: WHILE OPEN_PARENTHESIS exp=expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cs=comando* CLOSE_CURLED_BRACKETS { CmdWhile (exp, cs) }
 
-cmd_incr: ID INCREMENT { CmdIncr(ExpVar $1) };
+comando_for: FOR OPEN_PARENTHESIS v=ID ATTRIBUTION init=expressao SEMICOLON testeID=ID LESS_THAN valor=expressao SEMICOLON fin=expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cs=comando* CLOSE_CURLED_BRACKETS
+	{ 
+	   CmdSe(ExpBool (true, snd v), 
+                 [
+	         CmdAtrib (ExpVar(VarSimples v), init) ;
+                 CmdWhile (
+                   ExpOp ((Menor, snd v),
+                   ExpVar (VarSimples v),
+                   valor
+                 ),
+                 List.append cs [CmdAtrib (ExpVar (VarSimples v),
+                                    ExpOp (
+                                      (Mais, snd v),
+                                      ExpVar (VarSimples v),
+                                      ExpInt (1, snd v))
+                                    )
+                                 ]
+                   )
+                 ],
+                 None
+          )
+	}
 
-cmd_decr: ID DECREMENT { CmdDecr(ExpVar $1) };
+expressao:
+         | v=variavel { ExpVar v    }
+         | i=LITERAL_INTEGER      { ExpInt i    }
+         | f=LITERAL_FLOAT      { ExpFloat f    }
+         | s=LITERAL_STRING   { ExpString s }
+         | c=LITERAL_CHAR   { ExpChar c }
+         | b=LITERAL_BOOL     { ExpBool b   }
+	 | e1=expressao op=oper e2=expressao { ExpOp (op, e1, e2) }
+         | c = chamada  { c }
+ 	 | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
 
-elsee: /* nada */ { None }
-     | ELSE OPEN_CURLED_BRACKETS comandos CLOSE_CURLED_BRACKETS { Some($3) }
-     | ELSE cmd_if { Some([$2]) }
-     ;
-
-cmd_switch: SWITCH OPEN_PARENTHESIS expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cases default CLOSE_CURLED_BRACKETS { CmdSwitch($3, $6, Some($7)) };
-
-cases: /* nada */ { [] }
-     | case cases { $1 :: $2 }
-     ;
-
-case: CASE expressao COLON comandos BREAK SEMICOLON { CASE($2, $4) }
-    | CASE SINGLE_QUOTE expressao SINGLE_QUOTE COLON comandos BREAK SEMICOLON { CASE($3, $6) }
-    ;
-
-default: DEFAULT COLON comandos { DEFAULT($3) };
-
-cmd_return:
-          | RETURN exp=expressao SEMICOLON { CmdReturn(exp) };
-
-args: /* nada */ { [] }
-    | seqs { $1 }
-    ;
-
-seqs: expressao { [$1] }
-    | seqs COMA expressao { $1 @ [$3] }
-    ;
-
-expressao: 
-         | id=ID             { ExpVar     id }
-         | i=LITERAL_INTEGER { ExpInt      i }
-         | f=LITERAL_FLOAT   { ExpFloat    f }
-         | c=LITERAL_CHAR    { ExpChar     c }
-         | s=LITERAL_STRING  { ExpString   s }
-         | b=LITERAL_BOOL    { ExpBool     b }
-         | NOT e=expressao   { ExpUn(Not, e) }
-         | le=expressao op=oper re=expressao { ExpBin (op, le, re) }
-         | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
-         | chama_func { $1 }
-         ;
-
+chamada : nome=ID OPEN_PARENTHESIS args=separated_list(COMA, expressao) CLOSE_PARENTHESIS {
+             ExpChamada  (nome, args)}
 
 %inline oper:
-            | OR { Or }
-            | AND { And }
-            | ADDITION { Add }
-            | SUBTRACTION { Sub }
-            | MULTIPLICATION { Mul }
-            | DIVISION { Div }
-            | MORE_THAN { More_Than }
-            | LESS_THAN { Less_Than }
-            | MORE_EQUAL_THAN { More_Equal_Than }
-            | LESS_EQUAL_THAN { Less_Equal_Than }
-            | EQUALS { Eq }
-            | DIFFERENT { Dif }
-            | MODULE { Mod }
-            ;
+	| pos = ADDITION   { (Mais, pos)  }
+        | pos = SUBTRACTION  { (Menos, pos) }
+        | pos = MULTIPLICATION   { (Mult, pos)  }
+        | pos = DIVISION    { (Div, pos)   }
+        | pos = LESS_THAN  { (Menor, pos) }
+        | pos = EQUALS  { (Igual, pos) }
+        | pos = DIFFERENT  { (Difer, pos) }
+        | pos = MORE_THAN  { (Maior, pos) }
+        | pos = AND   { (E, pos)     }
+        | pos = OR  { (Ou, pos)    }
 
-chama_func: ID OPEN_PARENTHESIS args CLOSE_PARENTHESIS { ChamaFunc(ExpVar $1, $3) };
+variavel:
+        | x=ID       { VarSimples x }
+
 

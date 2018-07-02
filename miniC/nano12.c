@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int main(){
 	int n;
 	int m;
@@ -9,7 +7,7 @@ int main(){
 	x = 5;
 	while(x > n){
 		if(n == m){
-			printf("%d", n);
+			printf(n);
 		} else {
 			printf("0");
 		}

@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int main(){
     float preco;
 	float venda;
@@ -8,16 +6,17 @@ int main(){
 	scanf("%f", &preco);
 	printf("Digite a venda: ");
 	scanf("%f", &venda);
-	if(venda < 500 || preco < 30){
-		novo_preco = preco + (10.0/100 * preco);
+	if(venda < 500.0 || preco < 30.0){
+		novo_preco = preco + (10.0/100.0 * preco);
 	} else {
-		if((venda >= 500 && venda < 1200) || (preco >= 30 && preco < 80)){
-			novo_preco = preco + (15.0/100 * preco);
+		if((venda >= 500.0 && venda < 1200.0) || (preco >= 30.0 && preco < 80.0)){
+			novo_preco = preco + (15.0/100.0 * preco);
 		} else {
-			if(venda >= 1200 || preco >= 80){
-				novo_preco = preco - (20.0/100 * preco);
+			if(venda >= 1200.0 || preco >= 80.0){
+				novo_preco = preco - (20.0/100.0 * preco);
 			}
 		}
 	}
-	printf("O novo preço é %f\n", novo_preco);
+	printf("O novo preço é ");
+	printf(novo_preco);
 }

@@ -1,10 +1,10 @@
-#include <stdio.h>
-
 int fatorial(int n){
 	if(n <= 0){
 		return 1;
 	} else {
-		return n * fatorial(n-1);
+		int x = n - 1;
+		int f = fatorial(x);
+		return n * f;
 	}
 }
 
@@ -15,7 +15,8 @@ int main(){
 	scanf("%d", &numero);
 	fat = fatorial(numero);
 	printf("O fatorial de ");
-	printf("%d", numero);
+	printf(numero);
 	printf(" é ");
-	printf("%d\n", fat);
+	printf(fat);
+	return 1;
 }

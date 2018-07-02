@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int verifica(int n){
 	int res;
 	if(n > 0){
