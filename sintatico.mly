@@ -11,8 +11,7 @@ open Sast
 %token <string * Lexing.position> LITERAL_STRING
 %token <char * Lexing.position> LITERAL_CHAR
 %token <bool * Lexing.position> LITERAL_BOOL
-%token <Lexing.position> COMA COLON SEMICOLON
-%token <Lexing.position> OPEN_BRACKETS CLOSE_BRACKETS
+%token <Lexing.position> COMA SEMICOLON
 %token <Lexing.position> OPEN_PARENTHESIS CLOSE_PARENTHESIS
 %token <Lexing.position> INTEGER FLOAT BOOL CHAR
 %token <Lexing.position> IF ELSE
@@ -21,10 +20,10 @@ open Sast
 %token <Lexing.position> SUBTRACTION
 %token <Lexing.position> MULTIPLICATION
 %token <Lexing.position> DIVISION
-%token <Lexing.position> LESS_THAN LESS_EQUAL_THAN
+%token <Lexing.position> LESS_THAN
 %token <Lexing.position> EQUALS
 %token <Lexing.position> DIFFERENT
-%token <Lexing.position> MORE_THAN MORE_EQUAL_THAN
+%token <Lexing.position> MORE_THAN
 %token <Lexing.position> AND
 %token <Lexing.position> OR
 %token <Lexing.position> OPEN_CURLED_BRACKETS
@@ -120,11 +119,11 @@ comando_scanString: SCANF OPEN_PARENTHESIS ARGS_SCAN COMA ADDRESS exp=expressao 
 
 comando_while: WHILE OPEN_PARENTHESIS exp=expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cs=comando* CLOSE_CURLED_BRACKETS { CmdWhile (exp, cs) }
 
-comando_for: FOR OPEN_PARENTHESIS v=ID ATTRIBUTION init=expressao SEMICOLON testeID=ID LESS_THAN valor=expressao SEMICOLON fin=expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cs=comando* CLOSE_CURLED_BRACKETS
-	{ 
-	   CmdSe(ExpBool (true, snd v), 
+comando_for: FOR OPEN_PARENTHESIS v=ID ATTRIBUTION init=expressao SEMICOLON ID LESS_THAN valor=expressao SEMICOLON expressao CLOSE_PARENTHESIS OPEN_CURLED_BRACKETS cs=comando* CLOSE_CURLED_BRACKETS
+  { 
+     CmdSe(ExpBool (true, snd v), 
                  [
-	         CmdAtrib (ExpVar(VarSimples v), init) ;
+           CmdAtrib (ExpVar(VarSimples v), init) ;
                  CmdWhile (
                    ExpOp ((Menor, snd v),
                    ExpVar (VarSimples v),
@@ -141,7 +140,7 @@ comando_for: FOR OPEN_PARENTHESIS v=ID ATTRIBUTION init=expressao SEMICOLON test
                  ],
                  None
           )
-	}
+  }
 
 expressao:
          | v=variavel { ExpVar v    }
@@ -150,15 +149,15 @@ expressao:
          | s=LITERAL_STRING   { ExpString s }
          | c=LITERAL_CHAR   { ExpChar c }
          | b=LITERAL_BOOL     { ExpBool b   }
-	 | e1=expressao op=oper e2=expressao { ExpOp (op, e1, e2) }
+   | e1=expressao op=oper e2=expressao { ExpOp (op, e1, e2) }
          | c = chamada  { c }
- 	 | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
+   | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
 
 chamada : nome=ID OPEN_PARENTHESIS args=separated_list(COMA, expressao) CLOSE_PARENTHESIS {
              ExpChamada  (nome, args)}
 
 %inline oper:
-	| pos = ADDITION   { (Mais, pos)  }
+  | pos = ADDITION   { (Mais, pos)  }
         | pos = SUBTRACTION  { (Menos, pos) }
         | pos = MULTIPLICATION   { (Mult, pos)  }
         | pos = DIVISION    { (Div, pos)   }

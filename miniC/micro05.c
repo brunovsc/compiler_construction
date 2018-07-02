@@ -1,5 +1,5 @@
 int main(){
-char nome[15];
+	char nome;
 	char sexo;
 	char newLine;
 	int x;

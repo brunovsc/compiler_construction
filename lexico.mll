@@ -42,19 +42,14 @@ rule token =
   | '*'   { MULTIPLICATION (pos_atual lexbuf) }
   | '/'   { DIVISION (pos_atual lexbuf) }
   | '<'   { LESS_THAN (pos_atual lexbuf) }
-  | "<="   { LESS_EQUAL_THAN (pos_atual lexbuf) }
   | "=="   { EQUALS (pos_atual lexbuf) }
   | "!="  { DIFFERENT (pos_atual lexbuf) }
   | '>'   { MORE_THAN (pos_atual lexbuf) }
-  | ">="   { MORE_EQUAL_THAN (pos_atual lexbuf) }
   | "&&"  { AND (pos_atual lexbuf) }
   | "||"  { OR (pos_atual lexbuf) }
   | '('   { OPEN_PARENTHESIS (pos_atual lexbuf) }
   | ')'   { CLOSE_PARENTHESIS (pos_atual lexbuf) }
-  | '['   { OPEN_BRACKETS (pos_atual lexbuf) }
-  | ']'   { CLOSE_BRACKETS (pos_atual lexbuf) }
   | ','   { COMA (pos_atual lexbuf) }
-  | ':'   { COLON (pos_atual lexbuf) }
   | ';'   { SEMICOLON (pos_atual lexbuf) }
   | "="  { ATTRIBUTION (pos_atual lexbuf) }
   | "return"    { RETURN (pos_atual lexbuf) }
