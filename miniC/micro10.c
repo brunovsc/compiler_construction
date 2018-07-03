@@ -1,9 +1,10 @@
 int fatorial(int n){
-	if(n <= 0){
+	int x, f;
+	if(n < 1){
 		return 1;
 	} else {
-		int x = n - 1;
-		int f = fatorial(x);
+		x = n - 1;
+		f = fatorial(x);
 		return n * f;
 	}
 }

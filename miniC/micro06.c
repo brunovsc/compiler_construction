@@ -2,23 +2,25 @@ int main(){
 	int numero;
 	printf("Digite um número de 1 a 5: ");
 	scanf("%d", &numero);
-	switch(numero){
-		case 1:
-			printf("Um\n");
-			break;
-		case 2:
+	if(numero == 1) {
+		printf("Um\n");
+	} else {
+		if(numero == 2) {
 			printf("Dois\n");
-			break;
-		case 3:
-			printf("Três\n");
-			break;
-		case 4:
-			printf("Quatro\n");
-			break;
-		case 5:
-			printf("Cinco\n");
-			break;
-		default:
-			printf("Número Inválido!!!\n");
-	}	
+		} else {
+			if(numero == 3) {
+				printf("Três\n");
+			} else {
+				if(numero == 4) {
+					printf("Quatro\n");
+				} else {
+					if(numero == 5) {
+						printf("Cinco\n");
+					} else {
+						printf("Número Inválido!!!\n");
+					}
+				}
+			}
+		}
+	}
 }
