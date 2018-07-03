@@ -12,6 +12,8 @@ int fatorial(int n){
 int main(){
 	int numero;
 	int fat;
+	numero = 0;
+	fat = 0;
 	printf("Digite um número: ");
 	scanf("%d", &numero);
 	fat = fatorial(numero);

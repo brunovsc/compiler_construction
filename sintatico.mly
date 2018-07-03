@@ -57,10 +57,10 @@ declaracao_de_variavel:
                    List.map (fun id -> DecVar (id,t)) ids  }
 
 declaracao_de_funcao:
-   tret=tipo_simples nome=ID OPEN_PARENTHESIS formais = separated_list(COMA, parametro) CLOSE_PARENTHESIS 
+  | tret=tipo_simples nome=ID OPEN_PARENTHESIS formais = separated_list(COMA, parametro) CLOSE_PARENTHESIS 
   OPEN_CURLED_BRACKETS
   ds = declaracao_de_variavel*
-  cs = comando*
+  cs = comando*  
   CLOSE_CURLED_BRACKETS {
     DecFun {
       fn_nome = nome;

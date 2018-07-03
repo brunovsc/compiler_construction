@@ -33,6 +33,7 @@ and campos = campo list
 and campo = ident pos * tipo
 
 and 'expr comando =
+  | CmdDec of 'expr * tipo * 'expr option
   | CmdAtrib of 'expr * 'expr
   | CmdSe of 'expr * ('expr comandos) * ('expr comandos option)
   | CmdEntrada of ('expr expressoes)
