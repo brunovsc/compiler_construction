@@ -270,7 +270,7 @@ let rec verifica_cmd amb tiporet cmd =
           let _ = Amb.insere_local amb id A.TipoInt in
           let expt = infere_exp amb exp in
           CmdScanInt (fst expt) )
-      | _ -> failwith "Falha ScanInt"
+      (*| _ -> failwith "Falha ScanInt"*)
      ) 
     )
 
@@ -296,7 +296,7 @@ let rec verifica_cmd amb tiporet cmd =
           let _ = Amb.insere_local amb id A.TipoString in
           let expt = infere_exp amb exp in
           CmdScanString (fst expt) )
-      | _ -> failwith "Falha ScanString"
+      (*| _ -> failwith "Falha ScanString"*)
      ) 
     )
 
@@ -331,7 +331,7 @@ let rec verifica_cmd amb tiporet cmd =
           let _ = Amb.insere_local amb id A.TipoFloat in
           let expt = infere_exp amb exp in
           CmdScanFloat (fst expt) )
-      | _ -> failwith "Falha ScanFloat"
+      (*| _ -> failwith "Falha ScanFloat"*)
      ) 
     )
 
