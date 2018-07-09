@@ -42,6 +42,7 @@ rule token =
   | '*'   { MULTIPLICATION (pos_atual lexbuf) }
   | '/'   { DIVISION (pos_atual lexbuf) }
   | '<'   { LESS_THAN (pos_atual lexbuf) }
+  | '!'   { NOT (pos_atual lexbuf) }
   | "=="   { EQUALS (pos_atual lexbuf) }
   | "!="  { DIFFERENT (pos_atual lexbuf) }
   | '>'   { MORE_THAN (pos_atual lexbuf) }
@@ -63,6 +64,8 @@ rule token =
   | "for"        { FOR (pos_atual lexbuf) }
   | "float"      { FLOAT (pos_atual lexbuf) }
   | "char"      { CHAR (pos_atual lexbuf) }
+  | "TRUE"     { LITERAL_BOOL (true, pos_atual lexbuf) }
+  | "FALSE"    { LITERAL_BOOL (false, pos_atual lexbuf) }
   | "\"%s\""         { ARGS_SCAN (pos_atual lexbuf) }
   | "\"%d\""         { ARGD_SCAN (pos_atual lexbuf) }
   | "\"%f\""         { ARGF_SCAN (pos_atual lexbuf) }

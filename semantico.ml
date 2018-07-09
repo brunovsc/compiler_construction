@@ -14,6 +14,7 @@ let rec posicao exp = let open S in
   | ExpString  (_,pos) -> pos
   | ExpBool (_,pos) -> pos
   | ExpOp ((_,pos),_,_)  -> pos
+  | ExpOpUn ((_,pos),_)  -> pos
   | ExpChamada ((_,pos), _) -> pos
 
 type classe_op = Aritmetico | Relacional | Logico | Cadeia
@@ -22,7 +23,8 @@ let classifica op =
   let open A in
   match op with
     Ou
-  | E  -> Logico
+  | E
+  | Not -> Logico
   | Menor
   | Menor_Igual
   | Maior_Igual
@@ -159,6 +161,27 @@ let rec infere_exp amb exp =
       )
     in
       (T.ExpOp ((op,tinf), (esq, tesq), (dir, tdir)), tinf)
+
+  | S.ExpOpUn (op, expr) ->
+    let (expr, texpr) = infere_exp amb expr in
+
+    let verifica_logico_un () =
+      (match texpr with
+         A.TipoBool ->
+              let _ = mesmo_tipo (snd op) 
+              in A.TipoBool (* O tipo da expressão lógica é sempre booleano *)
+
+       | t -> let msg = "um operador logico nao pode ser usado com o tipo " ^ (nome_tipo t)
+              in failwith (msg_erro_pos (snd op) msg)
+      )
+
+    in
+    let op = fst op in
+    let tinf = (match (classifica op) with
+        | Logico -> verifica_logico_un ()
+      )
+    in
+      (T.ExpOpUn ((op,tinf), (expr, texpr)), tinf)
 
   | S.ExpChamada (nome, args) ->
      let rec verifica_parametros ags ps fs =

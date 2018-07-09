@@ -63,6 +63,7 @@ and oper =
   | Igual
   | Difer
   | Maior
+  | Not
   | E
   | Ou
   | Concat

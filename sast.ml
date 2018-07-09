@@ -8,4 +8,5 @@ type expressao =
   | ExpString of string pos
   | ExpBool of bool pos
   | ExpOp of oper pos * expressao * expressao
+  | ExpOpUn of oper pos * expressao
   | ExpChamada of ident pos * (expressao expressoes)

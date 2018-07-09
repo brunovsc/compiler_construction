@@ -24,6 +24,7 @@ open Sast
 %token <Lexing.position> EQUALS
 %token <Lexing.position> DIFFERENT
 %token <Lexing.position> MORE_THAN
+%token <Lexing.position> NOT
 %token <Lexing.position> AND
 %token <Lexing.position> OR
 %token <Lexing.position> OPEN_CURLED_BRACKETS
@@ -32,6 +33,7 @@ open Sast
 %token <Lexing.position> SCANF ARGS_SCAN ARGD_SCAN ARGF_SCAN ADDRESS
 %token <Lexing.position> WHILE
 %token <Lexing.position> FOR
+%token <Lexing.position> TRUE FALSE
 %token EOF
 
 %left OR
@@ -40,6 +42,7 @@ open Sast
 %left MORE_THAN LESS_THAN
 %left ADDITION SUBTRACTION
 %left MULTIPLICATION DIVISION
+%left NOT
 
 
 %start <Sast.expressao Ast.programa> programa
@@ -150,6 +153,7 @@ expressao:
          | c=LITERAL_CHAR   { ExpChar c }
          | b=LITERAL_BOOL     { ExpBool b   }
    | e1=expressao op=oper e2=expressao { ExpOp (op, e1, e2) }
+         | op=oper e=expressao { ExpOpUn (op, e) }
          | c = chamada  { c }
    | OPEN_PARENTHESIS e=expressao CLOSE_PARENTHESIS { e }
 
@@ -167,6 +171,7 @@ chamada : nome=ID OPEN_PARENTHESIS args=separated_list(COMA, expressao) CLOSE_PA
         | pos = MORE_THAN  { (Maior, pos) }
         | pos = AND   { (E, pos)     }
         | pos = OR  { (Ou, pos)    }
+        | pos = NOT  { (Not, pos)    }
 
 variavel:
         | x=ID       { VarSimples x }

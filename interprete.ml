@@ -49,7 +49,8 @@ let classifica op =
   | Difer
   | Maior -> Relacional
   | E
-  | Ou -> Logico
+  | Ou 
+  | Not -> Logico
   | Concat -> Cadeia
 
 
@@ -173,6 +174,26 @@ let rec interpreta_exp amb exp =
         | Relacional -> interpreta_relacional ()
         | Logico -> interpreta_logico ()
         | Cadeia -> interpreta_cadeia ()
+      )
+    in
+      valor
+
+  | ExpOpUn ((op,top), (expr, texpr)) ->
+    let vexpr = interpreta_exp amb expr in
+
+    let interpreta_logico_un () =
+      (match texpr with
+       | TipoBool ->
+         (match op with
+          | Not -> ExpBool (not (pega_bool vexpr), top)
+          | _ ->  failwith "interpreta_logico"
+         )
+       | _ ->  failwith "interpreta_logico"
+      )
+
+    in
+    let valor = (match (classifica op) with
+        | Logico -> interpreta_logico_un ()
       )
     in
       valor
