@@ -20,3 +20,6 @@ int main(){
 	printf("O novo preço é ");
 	printf(novo_preco);
 }
+
+
+main();

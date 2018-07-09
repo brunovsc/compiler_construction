@@ -16,3 +16,5 @@ int main(){
 	printf(" números no intervalo entre 10 e 150\n");
 	return 1;
 }
+
+main();

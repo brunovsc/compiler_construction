@@ -3,3 +3,6 @@ int main(){
 	n = 1 - 2;
 	printf(n);
 }
+
+
+main();

@@ -10,3 +10,5 @@ int main(){
 	printf(" F\n");
 	return 1;
 }
+
+main();

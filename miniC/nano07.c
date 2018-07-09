@@ -5,3 +5,6 @@ int main(){
 		printf(n);
 	}
 }
+
+
+main();

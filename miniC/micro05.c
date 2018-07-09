@@ -1,31 +1,30 @@
 int main(){
 	char nome;
-	char sexo;
 	char newLine;
-	int x;
-	int h;
-	int m;
-	// a inicialização das variáveis h e m não estava presente no algoritmo em Portugol
+	int sexo;
+	int x, h, m;
 	h = 0;
 	m = 0;
-	for(x = 1; x <= 5; x++){
+	for(x = 0; x < 5; x + 1){
 		printf("Digite o nome: ");
 		scanf("%s", &nome);
-		scanf("%c", &newLine);
-		printf("H - Homem ou M - Mulher: ");
-		scanf("%c", &sexo);
-		scanf("%c", &newLine);
-		switch(sexo){
-			case 'H':
-				h = h + 1;
-				break;
-			case 'M':
-				m = m + 1;
-				break;
-			default:
-				printf("Sexo só pode ser H ou M!\n");
+		printf("0 - Homem ou 1 - Mulher: ");
+		scanf("%d", &sexo);
+		if(sexo == 0){
+			h = h + 1;
+		}
+		if(sexo == 1){
+			m = m + 1;
 		}
 	}
-	printf("Foram inseridos %d Homens\n", h);
-	printf("Foram inseridos %d Mulheres\n", m);
+	printf("Foram inseridos ");
+	printf(h);
+	printf(" Homens\n");
+	printf("Foram inseridos \n");
+	printf(m);
+	printf(" Mulheres\n");
+	return 1;
 }
+
+
+main();

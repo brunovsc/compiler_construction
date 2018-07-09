@@ -16,3 +16,6 @@ int main(){
 		printf(num1);
 	}
 }
+
+
+main();

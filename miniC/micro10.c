@@ -23,3 +23,6 @@ int main(){
 	printf(fat);
 	return 1;
 }
+
+
+main();
